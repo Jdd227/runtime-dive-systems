@@ -1,17 +1,6 @@
-# RunTime v2: upload this update
+# Update your RunTime website
 
-This update replaces the first site's design with a simple personal portfolio using your existing RunTime logo. It adds software, photography, designs, blog, gear, privacy, and project-use warning pages.
-
-## Publish using GitHub's website
-
-1. Unzip RunTime-Dive-Systems-v2.zip on your Mac.
-2. Open your existing repository: https://github.com/Jdd227/runtime-dive-systems
-3. Choose **Add file → Upload files**.
-4. Open the extracted RunTime-Dive-Systems-v2 folder. Drag its **contents** onto GitHub: build.py, assets, content, README.md, POST-TEMPLATE.md, and this guide. Drag the folders as well as the files so their relative paths are retained. Do not drag the enclosing RunTime-Dive-Systems-v2 folder itself.
-5. Commit to **main** with “Simplify RunTime website and add portfolio sections”.
-6. Watch **Actions → Publish RunTime**. A successful run publishes the new version automatically.
-
-This archive deliberately leaves out the already-installed .github publishing workflow and old generated dist directory. Your existing workflow runs build.py and generates a fresh dist folder. You do not need to change Pages or DNS for this redesign. Existing tracked dist files may remain in the repository; the workflow uses fresh generated output.
+The site publishes automatically after changes are committed to the main branch. No GoDaddy or DNS changes are needed for normal updates.
 
 ## Add your own images
 
@@ -19,7 +8,13 @@ Upload public JPG, PNG, or WebP images into assets/photos. Use simple lowercase 
 
 ### Underwater portfolio
 
-Edit content/gallery.json. Replace [] with entries like:
+1. Open **assets → photos** in your GitHub repository.
+2. Choose **Add file → Upload files**, select your new photo, then **Commit changes** to main.
+3. Open **content → gallery.json** and click the pencil to edit.
+4. Add a comma after the previous photo entry, then add the new entry before the final closing `]`. Use the format below. Keep the existing entries to retain the current photos.
+5. Click **Commit changes** and commit to main. Check **Actions → Publish RunTime** for a green check, then refresh Photography.
+
+This example shows a gallery with one photo:
 
 ```json
 [
@@ -30,6 +25,8 @@ Edit content/gallery.json. Replace [] with entries like:
   }
 ]
 ```
+
+A `thumbnail` field is optional. It can point to a smaller preview file, while `file` points to the larger image opened by the viewer. If omitted, the same image is used for both.
 
 Each entry appears on Photography and the first three appear on the homepage. Clicking a photo opens the enlarged viewer. Add only photographs you want public and have permission to publish.
 
@@ -63,7 +60,7 @@ Publishing automatically updates the blog and homepage. Keep draft: true while w
 
 - Home: a short introduction and the five main areas.
 - Software: DPV Planner, Dive Current, Gas Label Studio, and Innerspace.
-- Photography: your own images, with an honest empty state until uploaded.
+- Photography: your underwater photographs in a clickable gallery.
 - Products & designs: JJ tube weights, DPV light holders, DPV compass, SeeSpray, and TriCell.
 - Blog: text and photos documenting work in progress and finished work.
 - Gear: equipment snapshot and configuration notes.

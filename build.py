@@ -123,7 +123,8 @@ def photos_block(limit=None):
     result='<div class="gallery">'
     for p in selected:
         source=E(safe_link(p['file']),quote=True);alt=E(p['alt'],quote=True);caption=E(p.get('caption',''),quote=True)
-        result+=f'<button type="button" data-photo="{source}" data-alt="{alt}" data-caption="{caption}" aria-label="View {alt}"><img src="{source}" alt="{alt}" loading="lazy"><span>{caption}</span></button>'
+        preview=E(safe_link(p.get("thumbnail",p["file"])),quote=True)
+        result+=f'<button type="button" data-photo="{source}" data-alt="{alt}" data-caption="{caption}" aria-label="View {alt}"><img src="{preview}" alt="{alt}" loading="lazy" decoding="async"><span>{caption}</span></button>'
     return result+'</div><dialog id="photo-dialog" aria-label="Photo viewer"><button type="button">Close</button><img alt=""><p></p></dialog>'
 
 def gear_block():
@@ -146,8 +147,11 @@ for p in PROJECTS:
     write('projects/'+p['slug']+'/index.html',shell(p['name'],body,'Software',p['description']))
 write('designs/index.html',shell('Products & designs',head('Made for diving','Products & designs.','My dive projects, custom parts, and designs. This is a showcase; the listings do not imply an item is for sale or certified.')+'<div class="page-content projects">'+''.join(project_card(p,True) for p in PRODUCTS)+'</div>','Designs'))
 for p in PRODUCTS:
-    images=''.join(f'<img src="{E(safe_link(i["file"]),quote=True)}" alt="{E(i["alt"],quote=True)}" loading="lazy">' for i in p.get('images',[]))
-    body=head(p['type'],p['name'],p['description'])+f'<article class="page-content prose"><div class="detail-meta">{badge(p)}<a href="{url("designs/")}">All designs</a></div><p>{E(p["body"])}</p>{images}<div class="notice">Personal project documentation. Suitability, dimensions, material properties, attachment security, and failure consequences must be evaluated for the actual use. <a href="{url("safety/")}">Read the project-use warning.</a></div><p><a href="{url("log/")}">Build notes in the blog →</a></p></article>'
+    images=''.join(f'<figure><img src="{E(safe_link(i["file"]),quote=True)}" alt="{E(i["alt"],quote=True)}" loading="lazy"><figcaption>{E(i.get("caption",""))}</figcaption></figure>' for i in p.get('images',[]))
+    if images: images='<div class="design-gallery">'+images+'</div>'
+    videos=''.join(f'<figure><video controls playsinline preload="none" poster="{E(safe_link(v["poster"]),quote=True)}" aria-label="{E(v["caption"],quote=True)}"><source src="{E(safe_link(v["file"]),quote=True)}" type="video/mp4"><a href="{E(safe_link(v["file"]),quote=True)}">Watch the video</a></video><figcaption>{E(v["caption"])}</figcaption></figure>' for v in p.get('videos',[]))
+    if videos: videos='<h2>From the workbench</h2><div class="design-gallery">'+videos+'</div>'
+    body=head(p['type'],p['name'],p['description'])+f'<article class="page-content prose"><div class="detail-meta">{badge(p)}<a href="{url("designs/")}">All designs</a></div><p>{E(p["body"])}</p>{images}{videos}<div class="notice">Personal project documentation. Suitability, dimensions, material properties, attachment security, and failure consequences must be evaluated for the actual use. <a href="{url("safety/")}">Read the project-use warning.</a></div><p><a href="{url("log/")}">Build notes in the blog →</a></p></article>'
     write('designs/'+p['slug']+'/index.html',shell(p['name'],body,'Designs',p['description']))
 # Preserve links from the first site version.
 write('projects/tricell/index.html',shell('TriCell',head('Project moved','TriCell oxygen analyzer.','This project now lives with my products and designs.')+f'<div class="page-content"><a href="{url("designs/tricell/")}">Read the TriCell project notes →</a></div>','Designs'))
