@@ -64,7 +64,7 @@
     "type": "DPV light accessory",
     "status": "Made",
     "description": "3D-printed ball mount holder for attaching a dive light arm to a DPV using a tank strap.",
-    "body": "I designed and printed a low-profile light mounting bracket for my DPV. A tank strap routes through the printed mount to secure it to the scooter. The holder has a central ball-mount stud for attaching compatible light hardware. The photos show the finished print, securing features, and mounting hardware. This is a personal design, and attachment security and fit should be checked for each setup.",
+    "body": "I designed and printed this low-profile ball-mount bracket to secure a dive light arm to a DPV using a tank strap. The printed bracket has a central ball-mount stud for compatible light hardware. The available print files are the BlackTip ball-mount bracket STL and its separate TPU squishy insert STL. The photographs show the finished parts, mounting holes, strap opening, and ball stud. Fit, material selection, strap retention, and attachment security need to be checked for your own DPV and lighting setup.",
     "images": [
       {
         "file": "assets/photos/dpv-light-ball-mount-built-01.webp",

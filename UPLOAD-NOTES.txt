@@ -1,0 +1,43 @@
+RunTime Dive Systems | Light ball mount: two STL download buttons
+
+This update targets the existing Jdd227/runtime-dive-systems repository.
+It is incremental: ONLY upload the listed assets, the replacement assets/site.js,
+and the replacement content/products.json. It is NOT the previous full three-designs package.
+
+TO PUBLISH
+1. Unzip this file on your Mac.
+2. Open https://github.com/Jdd227/runtime-dive-systems
+3. Choose Add file > Upload files.
+4. Drag the CONTENTS of the extracted folder (assets and content) into the upload area.
+   Preserve folder paths, especially assets/designs.
+5. Commit the updates to the main branch. If GitHub prompts about replacing the existing
+   assets/site.js and content/products.json, confirm only if you have not made further
+   edits to them since this package was created.
+6. Check Actions > Publish RunTime for a successful deployment, then refresh your site.
+
+CHANGES
+- Adds assets/designs/ball-mount-blacktip.stl (full-size binary STL supplied by you).
+- Adds assets/designs/tpu-squishy-insert.stl (separate TPU component supplied by you).
+- Updates assets/site.js so a design page can have several distinct STL buttons.
+- Adds both download buttons to /designs/dpv-light-holders/.
+- Retains the working single-file download buttons on /designs/dpv-compass/ and
+  /designs/genesis-dpv-holder/.
+- Updates the existing light mount's description without changing any photo, captions,
+  or other product descriptions.
+
+WHY THE GENESIS HOLDER / STAND HAS ONE STL
+The three older uploads, Spacer Insert.stl, Spacer Insert(1).stl, and
+Spacer Insert(2).stl, were identical file contents. There is only one unique
+spacer file. The main Genesis holder/stand model was not provided, so its
+complete STL cannot be offered yet. This package does not invent that file.
+
+TESTING
+Both user-supplied STLs passed binary STL length/triangle checks and
+mesh topological checks in the local parser. Please verify physical fit,
+clearance, material choice, print orientation, slicer preview, and retention
+for the intended DPV before underwater use.
+
+IMPORTANT
+The site uses the static assets on GitHub Pages. The new links will not work
+until the corresponding STL files and JavaScript update are committed and
+published in the same upload.

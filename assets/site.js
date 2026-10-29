@@ -9,19 +9,42 @@ dialog?.querySelector('button').addEventListener('click',()=>dialog.close());
 dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
 // Downloadable 3D-print files on individual design pages.
+// List files separately so multi-part designs show all of their STL downloads.
 const designDownloads={
-  'dpv-compass':{file:'assets/designs/genesis-dpv-compass-mount.stl',label:'Download STL file'},
-  'genesis-dpv-holder':{file:'assets/designs/genesis-dpv-holder-spacer-insert.stl',label:'Download spacer STL'}
+  'dpv-compass':[
+    {file:'assets/designs/genesis-dpv-compass-mount.stl',label:'Compass mount STL'}
+  ],
+  'genesis-dpv-holder':[
+    {file:'assets/designs/genesis-dpv-holder-spacer-insert.stl',label:'Spacer insert STL'}
+  ],
+  'dpv-light-holders':[
+    {file:'assets/designs/ball-mount-blacktip.stl',label:'BlackTip ball mount STL'},
+    {file:'assets/designs/tpu-squishy-insert.stl',label:'TPU squishy insert STL'}
+  ]
 };
 const designSlug=window.location.pathname.match(/\/designs\/([^/]+)\/?(?:index\.html)?$/)?.[1];
 const designDetails=document.querySelector('article.page-content.prose');
-if(designSlug && designDetails && designDownloads[designSlug]){
-  const item=designDownloads[designSlug];
-  const link=document.createElement('a');
-  link.href='/'+item.file;
-  link.download=item.file.split('/').pop();
-  link.className='button';
-  link.textContent=item.label;
+const designFiles=designDownloads[designSlug];
+if(designDetails && designFiles?.length){
+  const filesSection=document.createElement('section');
+  filesSection.className='design-downloads';
+  filesSection.setAttribute('aria-label','3D-print design files');
+  const heading=document.createElement('h2');
+  heading.textContent='3D print files';
+  filesSection.appendChild(heading);
+  const links=document.createElement('div');
+  links.style.display='flex';
+  links.style.flexWrap='wrap';
+  links.style.gap='12px';
+  for(const file of designFiles){
+    const link=document.createElement('a');
+    link.href='/'+file.file;
+    link.download=file.file.split('/').pop();
+    link.className='button';
+    link.textContent=file.label;
+    links.appendChild(link);
+  }
+  filesSection.appendChild(links);
   const meta=designDetails.querySelector('.detail-meta');
-  if(meta)meta.insertAdjacentElement('afterend',link);
+  if(meta)meta.insertAdjacentElement('afterend',filesSection);
 }
