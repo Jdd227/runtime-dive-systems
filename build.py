@@ -117,6 +117,9 @@ def project_card(p,design=False):
 def logrow(p):
     return f'''<article class="log-row" data-post="{E((p['title']+' '+p['excerpt']+' '+p['project']).lower(),quote=True)}" data-project="{E(p['project'],quote=True)}"><time datetime="{p['date']}">{dt.date.fromisoformat(p['date']).strftime('%b %d, %Y')}</time><div><h3><a href="{url('log/'+p['slug']+'/')}">{E(p['title'])}</a></h3><p>{E(p['excerpt'])}</p><div class="log-project">{E(p['project'])}</div></div></article>'''
 
+def media_caption(item):
+    return "<figcaption>"+E(item["caption"])+"</figcaption>" if item.get("caption") else ""
+
 def photos_block(limit=None):
     selected=GALLERY if limit is None else GALLERY[:limit]
     if not selected:return '<div class="photo-empty"><strong>From below the surface.</strong><p>A place for my underwater photographs. The first collection is coming soon.</p></div>'
@@ -124,7 +127,8 @@ def photos_block(limit=None):
     for p in selected:
         source=E(safe_link(p['file']),quote=True);alt=E(p['alt'],quote=True);caption=E(p.get('caption',''),quote=True)
         preview=E(safe_link(p.get("thumbnail",p["file"])),quote=True)
-        result+=f'<button type="button" data-photo="{source}" data-alt="{alt}" data-caption="{caption}" aria-label="View {alt}"><img src="{preview}" alt="{alt}" loading="lazy" decoding="async"><span>{caption}</span></button>'
+        label=f"<span>{caption}</span>" if caption else ""
+        result+=f'<button type="button" data-photo="{source}" data-alt="{alt}" data-caption="{caption}" aria-label="View {alt}"><img src="{preview}" alt="{alt}" loading="lazy" decoding="async">{label}</button>'
     return result+'</div><dialog id="photo-dialog" aria-label="Photo viewer"><button type="button">Close</button><img alt=""><p></p></dialog>'
 
 def gear_block():
@@ -147,9 +151,9 @@ for p in PROJECTS:
     write('projects/'+p['slug']+'/index.html',shell(p['name'],body,'Software',p['description']))
 write('designs/index.html',shell('Products & designs',head('Made for diving','Products & designs.','My dive projects, custom parts, and designs. This is a showcase; the listings do not imply an item is for sale or certified.')+'<div class="page-content projects">'+''.join(project_card(p,True) for p in PRODUCTS)+'</div>','Designs'))
 for p in PRODUCTS:
-    images=''.join(f'<figure><img src="{E(safe_link(i["file"]),quote=True)}" alt="{E(i["alt"],quote=True)}" loading="lazy"><figcaption>{E(i.get("caption",""))}</figcaption></figure>' for i in p.get('images',[]))
+    images=''.join(f'<figure><img src="{E(safe_link(i["file"]),quote=True)}" alt="{E(i["alt"],quote=True)}" loading="lazy">{media_caption(i)}</figure>' for i in p.get('images',[]))
     if images: images='<div class="design-gallery">'+images+'</div>'
-    videos=''.join(f'<figure><video controls playsinline preload="none" poster="{E(safe_link(v["poster"]),quote=True)}" aria-label="{E(v["caption"],quote=True)}"><source src="{E(safe_link(v["file"]),quote=True)}" type="video/mp4"><a href="{E(safe_link(v["file"]),quote=True)}">Watch the video</a></video><figcaption>{E(v["caption"])}</figcaption></figure>' for v in p.get('videos',[]))
+    videos=''.join(f'<figure><video controls playsinline preload="none" poster="{E(safe_link(v["poster"]),quote=True)}" aria-label="{E(v.get("alt",v.get("caption","Build video")),quote=True)}"><source src="{E(safe_link(v["file"]),quote=True)}" type="video/mp4"><a href="{E(safe_link(v["file"]),quote=True)}">Watch the video</a></video>{media_caption(v)}</figure>' for v in p.get('videos',[]))
     if videos: videos='<h2>From the workbench</h2><div class="design-gallery">'+videos+'</div>'
     body=head(p['type'],p['name'],p['description'])+f'<article class="page-content prose"><div class="detail-meta">{badge(p)}<a href="{url("designs/")}">All designs</a></div><p>{E(p["body"])}</p>{images}{videos}<div class="notice">Personal project documentation. Suitability, dimensions, material properties, attachment security, and failure consequences must be evaluated for the actual use. <a href="{url("safety/")}">Read the project-use warning.</a></div><p><a href="{url("log/")}">Build notes in the blog →</a></p></article>'
     write('designs/'+p['slug']+'/index.html',shell(p['name'],body,'Designs',p['description']))
@@ -162,7 +166,7 @@ write('log/index.html',shell('Blog',body,'Blog'))
 for p in POSTS:
     body=head(p['project']+' · '+p['date'],p['title'],p['excerpt'])+f'<article class="page-content prose">{p["body"]}<p class="detail-meta">Written by {E(SITE["author"])}</p><p><a href="{url("log/")}">← All blog posts</a></p></article>'
     write('log/'+p['slug']+'/index.html',shell(p['title'],body,'Blog',p['excerpt']))
-gear_photos=''.join(f'<figure><img src="{E(safe_link(i["file"]),quote=True)}" alt="{E(i["alt"],quote=True)}" loading="lazy"><figcaption>{E(i.get("caption",""))}</figcaption></figure>' for i in GEAR.get('images',[]))
+gear_photos=''.join(f'<figure><img src="{E(safe_link(i["file"]),quote=True)}" alt="{E(i["alt"],quote=True)}" loading="lazy">{media_caption(i)}</figure>' for i in GEAR.get('images',[]))
 body=head('Gear','My gear & configuration.',GEAR['intro'])+'<div class="page-content">'+gear_block()+f'<div class="prose"><h2>Configuration notes</h2><p>{E(GEAR["configuration"])}</p>{gear_photos}</div></div>'
 write('gear/index.html',shell('My gear & configuration',body,'My gear'))
 body=head('About','Hi, I’m Josh.','I am a Pacific Northwest diver who likes making things for diving.')+f'<article class="page-content prose"><p>RunTime is where I keep my software projects, custom dive designs, underwater photography, and notes from what I am working on. Some projects are finished. Others are still being worked out.</p><p>I dive a JJ-CCR and use a DPV. The diving here, from Lake Washington wrecks to Puget Sound marine life, gives me plenty of reasons to keep exploring and building.</p><p>Giant Pacific octopuses and sixgill sharks are among the things I love about these waters.</p><p><a href="{url("projects/")}">Software projects</a> · <a href="{url("designs/")}">Products & designs</a> · <a href="{url("gear/")}">My gear</a></p></article>'

@@ -68,3 +68,12 @@ Publishing automatically updates the blog and homepage. Keep draft: true while w
 - Project-use warning: explains that personal projects do not replace safety equipment, procedures, training, official maps, or independent planning.
 
 Privacy and warning text describe this version; they are not a claim of legal review or product certification. If you later add sales, forms, analytics, or other features, review and update the policy.
+
+### Add or change a caption
+
+1. In GitHub open **content → gallery.json** for Photography, or **content → products.json** for design photos.
+2. Click the pencil (**Edit this file**). Find the photo using its `file` name or `alt` description.
+3. Change only its `caption` value, for example `"caption": "Your own words here"`. An empty string (`"caption": ""`) hides the caption. Keep the quotation marks and commas. The `alt` field is the image description used by screen readers; it is separate from the visible caption.
+4. Click **Commit changes**, choose the main branch, and commit. After **Actions → Publish RunTime** has a green check, refresh your site.
+
+For blog paragraphs, put a blank line between paragraphs. Sentences that belong together should remain in the same paragraph.
