@@ -154,7 +154,7 @@
     "name": "TriCell oxygen analyzer",
     "type": "Electronics & printed housing",
     "status": "In development",
-    "description": "A three-cell oxygen analyzer project, from bench electronics to printed housings.",
+    "description": "A three-cell oxygen analyzer project, kind of a silly project but I have the cells to play with.  Currently working on the bench on a breadboard.  Next task is to create a housing that organizes the cells and allows for proper gas flow over the cells.",
     "body": "Work in progress on a three-sensor oxygen analyzer. This is a development prototype, not a validated diving instrument. I will document the electronics, enclosure iterations, and testing in the blog.",
     "images": []
   }
