@@ -69,12 +69,20 @@
   },
   {
     "slug": "dpv-compass",
-    "name": "DPV compass",
+    "name": "Genesis DPV Compass Mount",
     "type": "Navigation accessory",
     "status": "Made",
-    "description": "My compass project for a DPV.",
-    "body": "A place to show the compass setup, its mounting arrangement, and the work behind it. Detailed configuration photos and project notes will be added here.",
-    "images": []
+    "description": "A compact compass mount for the Genesis DPV that attaches using a tank strap or bungee.",
+    "body": "I designed this simple compass mount for my Genesis DPV. It attaches using a tank strap or bungee and allows magnetic correction for the installed compass. I tested it with the DPV and observed no magnetic interference from the scooter. The STL file is available to download from the Designs listing. Confirm compass accuracy and attachment security with your own equipment before use.",
+    "url": "https://runtimedivesystems.com/assets/designs/genesis-dpv-compass-mount.stl",
+    "link_label": "Download STL",
+    "images": [
+      {
+        "file": "assets/photos/genesis-dpv-compass-mount.webp",
+        "alt": "CAD model of the Genesis DPV compass mount with a curved base, strap slot, and circular compass holder",
+        "caption": ""
+      }
+    ]
   },
   {
     "slug": "seespray",
