@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "jj-tube-weights",
+    "name": "JJ tube weights",
+    "type": "Custom weights",
+    "status": "Made",
+    "description": "Custom tube weights I made for my JJ-CCR.",
+    "body": "A place to document the finished weights, the making process, and how they fit into my JJ setup. Photos, dimensions, and build notes will be added here.",
+    "images": []
+  },
+  {
+    "slug": "dpv-light-holders",
+    "name": "DPV dive light holders",
+    "type": "Mounts & accessories",
+    "status": "Made",
+    "description": "My dive-light holder designs for a scooter setup.",
+    "body": "A place for the designs, mounting details, and photos of the holders on the DPV. Files and revision notes will be added as I document them.",
+    "images": []
+  },
+  {
+    "slug": "dpv-compass",
+    "name": "DPV compass",
+    "type": "Navigation accessory",
+    "status": "Made",
+    "description": "My compass project for a DPV.",
+    "body": "A place to show the compass setup, its mounting arrangement, and the work behind it. Detailed configuration photos and project notes will be added here.",
+    "images": []
+  },
+  {
+    "slug": "seespray",
+    "name": "SeeSpray anti-fog",
+    "type": "Anti-fog spray",
+    "status": "Made",
+    "description": "My anti-fog spray project.",
+    "body": "SeeSpray is an anti-fog product I developed. This page is a home for product photos, development notes, and the story behind the project.",
+    "images": []
+  },
+  {
+    "slug": "tricell",
+    "name": "TriCell oxygen analyzer",
+    "type": "Electronics & printed housing",
+    "status": "In development",
+    "description": "A three-cell oxygen analyzer project, from bench electronics to printed housings.",
+    "body": "Work in progress on a three-sensor oxygen analyzer. This is a development prototype, not a validated diving instrument. I will document the electronics, enclosure iterations, and testing in the blog.",
+    "images": []
+  }
+]

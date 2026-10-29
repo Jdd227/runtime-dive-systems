@@ -1,0 +1,32 @@
+{
+  "intro": "My main setup is a JJ-CCR with a Genesis 2.2 DPV. This is a snapshot of the equipment I use, with space for configuration photos and rigging notes as I document them.",
+  "items": [
+    {
+      "category": "Rebreather",
+      "name": "JJ-CCR",
+      "note": "My primary dive platform."
+    },
+    {
+      "category": "DPV",
+      "name": "Genesis 2.2",
+      "note": "My current scooter."
+    },
+    {
+      "category": "Computers",
+      "name": "Shearwater Petrel 3 & Perdix",
+      "note": "Petrel 3 on the JJ, plus a Perdix."
+    },
+    {
+      "category": "Underwater camera",
+      "name": "Nikon D7000 / Aquatica housing",
+      "note": "My existing underwater photography rig."
+    },
+    {
+      "category": "Gas analysis",
+      "name": "Divesoft Blender Pro, Palm O₂ & Palm CO",
+      "note": "The analyzers in my fill-station setup."
+    }
+  ],
+  "configuration": "Detailed rigging, cylinder arrangements, and configuration photos will be added here. This page is a personal equipment record, not a recommended setup or a substitute for manufacturer instructions and training.",
+  "images": []
+}
