@@ -1,5 +1,5 @@
 {
-  "intro": "My main setup is a JJ-CCR with a Genesis 2.2 DPV. This is a snapshot of the equipment I use, with space for configuration photos and rigging notes as I document them.",
+  "intro": "My main setup is a JJ-CCR with a Genesis 3.2 DPV. This is a snapshot of the equipment I use, with space for configuration photos and rigging notes as I document them.",
   "items": [
     {
       "category": "Rebreather",
@@ -9,16 +9,16 @@
     {
       "category": "DPV",
       "name": "Genesis 3.2 and Blacktip Tech",
-      "note": "My current scooter."
+      "note": "My current scooters."
     },
     {
       "category": "Computers",
-      "name": "Shearwater Petrel 3 & Perdix",
-      "note": "Petrel 3 on the JJ, plus a Perdix."
+      "name": "Shearwater Petrel 3 & Perdix & Garmin Descent Mk1",
+      "note": "Petrel 3 on the JJ, plus a Perdix for off-board, then the Garmin for tropical recreational diving"
     },
     {
       "category": "Underwater camera",
-      "name": "Nikon D7000 / Aquatica housing",
+      "name": "Nikon D7000 / Aquatica housing / Sea & Sea YS-D3 Duo Strobes",
       "note": "My existing underwater photography rig."
     },
     {
