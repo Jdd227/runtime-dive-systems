@@ -8,10 +8,10 @@ document.querySelectorAll('[data-photo]').forEach(b=>b.addEventListener('click',
 dialog?.querySelector('button').addEventListener('click',()=>dialog.close());
 dialog?.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
-// Add downloadable design files on individual design pages.
-// Future downloads can be added to the map without changing the site generator.
+// Downloadable 3D-print files on individual design pages.
 const designDownloads={
-  'dpv-compass':{file:'assets/designs/genesis-dpv-compass-mount.stl',label:'Download STL file'}
+  'dpv-compass':{file:'assets/designs/genesis-dpv-compass-mount.stl',label:'Download STL file'},
+  'genesis-dpv-holder':{file:'assets/designs/genesis-dpv-holder-spacer-insert.stl',label:'Download spacer STL'}
 };
 const designSlug=window.location.pathname.match(/\/designs\/([^/]+)\/?(?:index\.html)?$/)?.[1];
 const designDetails=document.querySelector('article.page-content.prose');
