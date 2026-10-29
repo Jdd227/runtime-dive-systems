@@ -5,8 +5,56 @@
     "type": "Custom weights",
     "status": "Made",
     "description": "Custom tube weights I made for my JJ-CCR.",
-    "body": "A place to document the finished weights, the making process, and how they fit into my JJ setup. Photos, dimensions, and build notes will be added here.",
-    "images": []
+    "body": "Custom tube weights I made for my JJ-CCR. These photos and videos document the workbench setup, the finished pair, weight checks, and how they fit into my setup.",
+    "images": [
+      {
+        "file": "assets/photos/jj-tube-weights-finished-pair.jpg",
+        "alt": "The finished pair of JJ tube weights.",
+        "caption": "The finished pair of JJ tube weights."
+      },
+      {
+        "file": "assets/photos/jj-tube-weights-fitted-weight.jpg",
+        "alt": "A tube weight fitted into my JJ setup.",
+        "caption": "A tube weight fitted into my JJ setup."
+      },
+      {
+        "file": "assets/photos/jj-tube-weights-fit-detail.jpg",
+        "alt": "Close-up of the weight and its fit.",
+        "caption": "Close-up of the weight and its fit."
+      },
+      {
+        "file": "assets/photos/jj-tube-weights-workbench.jpg",
+        "alt": "Equipment on the workbench during the build.",
+        "caption": "Equipment on the workbench during the build."
+      },
+      {
+        "file": "assets/photos/jj-tube-weights-mold-jig.jpg",
+        "alt": "The upright tubes supported in a wooden jig.",
+        "caption": "The upright tubes supported in a wooden jig."
+      },
+      {
+        "file": "assets/photos/jj-tube-weights-weighing-first.jpg",
+        "alt": "Checking one tube on the scale.",
+        "caption": "Checking one tube on the scale."
+      },
+      {
+        "file": "assets/photos/jj-tube-weights-weighing-second.jpg",
+        "alt": "Checking the other tube on the scale.",
+        "caption": "Checking the other tube on the scale."
+      }
+    ],
+    "videos": [
+      {
+        "file": "assets/photos/jj-tube-weights-casting-process.mp4",
+        "poster": "assets/photos/jj-tube-weights-casting-process-poster.jpg",
+        "caption": "A closer look at the tubes during the build."
+      },
+      {
+        "file": "assets/photos/jj-tube-weights-workbench-video.mp4",
+        "poster": "assets/photos/jj-tube-weights-workbench-video-poster.jpg",
+        "caption": "A look around the tube-weight workbench setup."
+      }
+    ]
   },
   {
     "slug": "dpv-light-holders",
