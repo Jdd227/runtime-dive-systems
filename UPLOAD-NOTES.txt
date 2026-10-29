@@ -1,43 +1,33 @@
-RunTime Dive Systems | Light ball mount: two STL download buttons
+RunTime Dive Systems - Genesis DPV stand: all three STL downloads
 
-This update targets the existing Jdd227/runtime-dive-systems repository.
-It is incremental: ONLY upload the listed assets, the replacement assets/site.js,
-and the replacement content/products.json. It is NOT the previous full three-designs package.
+Repo: https://github.com/Jdd227/runtime-dive-systems
+Existing design URL (preserved): https://runtimedivesystems.com/designs/genesis-dpv-holder/
 
-TO PUBLISH
-1. Unzip this file on your Mac.
-2. Open https://github.com/Jdd227/runtime-dive-systems
-3. Choose Add file > Upload files.
-4. Drag the CONTENTS of the extracted folder (assets and content) into the upload area.
-   Preserve folder paths, especially assets/designs.
-5. Commit the updates to the main branch. If GitHub prompts about replacing the existing
-   assets/site.js and content/products.json, confirm only if you have not made further
-   edits to them since this package was created.
-6. Check Actions > Publish RunTime for a successful deployment, then refresh your site.
+This is an incremental update to the current site, NOT a full website replacement.
 
-CHANGES
-- Adds assets/designs/ball-mount-blacktip.stl (full-size binary STL supplied by you).
-- Adds assets/designs/tpu-squishy-insert.stl (separate TPU component supplied by you).
-- Updates assets/site.js so a design page can have several distinct STL buttons.
-- Adds both download buttons to /designs/dpv-light-holders/.
-- Retains the working single-file download buttons on /designs/dpv-compass/ and
-  /designs/genesis-dpv-holder/.
-- Updates the existing light mount's description without changing any photo, captions,
-  or other product descriptions.
+TO UPLOAD TO GITHUB
+1. Unzip this package on your Mac.
+2. Open the repository linked above, choose Add file > Upload files.
+3. Drag the extracted assets and content folders (not the enclosing ZIP folder) to GitHub.
+4. Confirm these paths are preserved when uploading, then commit to main:
+   assets/designs/genesis-dpv-stand.stl (new)
+   assets/designs/genesis-dpv-stand-end-cap.stl (new)
+   assets/site.js (updated, adds stand links without removing other downloads)
+   content/products.json (updated, describes three parts)
+5. Check Actions > Publish RunTime for success, then refresh the stand design page.
 
-WHY THE GENESIS HOLDER / STAND HAS ONE STL
-The three older uploads, Spacer Insert.stl, Spacer Insert(1).stl, and
-Spacer Insert(2).stl, were identical file contents. There is only one unique
-spacer file. The main Genesis holder/stand model was not provided, so its
-complete STL cannot be offered yet. This package does not invent that file.
+EXPECTED DOWNLOADS ON THE STAND PAGE
+- Genesis DPV stand STL: assets/designs/genesis-dpv-stand.stl (new)
+- Spacer insert STL: assets/designs/genesis-dpv-holder-spacer-insert.stl (already online)
+- Stand end cap STL: assets/designs/genesis-dpv-stand-end-cap.stl (new)
 
-TESTING
-Both user-supplied STLs passed binary STL length/triangle checks and
-mesh topological checks in the local parser. Please verify physical fit,
-clearance, material choice, print orientation, slicer preview, and retention
-for the intended DPV before underwater use.
+All existing compass and DPV ball mount downloads are retained.
+All existing image files, image descriptions, and captions are preserved.
+The page URL remains /designs/genesis-dpv-holder/ to avoid breaking old links.
 
-IMPORTANT
-The site uses the static assets on GitHub Pages. The new links will not work
-until the corresponding STL files and JavaScript update are committed and
-published in the same upload.
+Files were checked as binary STL, with watertight and winding-consistent meshes.
+Mesh validity does not establish fit, safe load capacity, or print suitability.
+
+NOTE: This package was generated using the current products.json and site.js
+from the repository. If either changes again before you upload, the two updated
+text files should be merged with those changes instead of blindly overwritten.

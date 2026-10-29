@@ -15,7 +15,9 @@ const designDownloads={
     {file:'assets/designs/genesis-dpv-compass-mount.stl',label:'Compass mount STL'}
   ],
   'genesis-dpv-holder':[
-    {file:'assets/designs/genesis-dpv-holder-spacer-insert.stl',label:'Spacer insert STL'}
+    {file:'assets/designs/genesis-dpv-stand.stl',label:'Genesis DPV stand STL'},
+    {file:'assets/designs/genesis-dpv-holder-spacer-insert.stl',label:'Spacer insert STL'},
+    {file:'assets/designs/genesis-dpv-stand-end-cap.stl',label:'Stand end cap STL'}
   ],
   'dpv-light-holders':[
     {file:'assets/designs/ball-mount-blacktip.stl',label:'BlackTip ball mount STL'},

@@ -95,11 +95,11 @@
   },
   {
     "slug": "genesis-dpv-holder",
-    "name": "Genesis DPV holder",
-    "type": "3D-printed DPV accessory",
+    "name": "Genesis DPV stand",
+    "type": "3D-printed DPV stand",
     "status": "Made",
-    "description": "A custom Genesis DPV holder with curved supports and a separate printable spacer insert.",
-    "body": "CAD views of my Genesis DPV holder show its curved support surfaces and the separate spacer insert. I am documenting the design and spacer geometry here; the included STL is for the spacer insert only, not the complete holder assembly. Fit, dimensions, installation, and retention need to be verified for the specific use.",
+    "description": "My 3D-printed Genesis DPV stand with curved cradles, a spacer insert, and an end cap.",
+    "body": "I designed this stand to support my Genesis DPV using a series of curved cradles. The design is made up of three downloadable print files: the main Genesis DPV stand, a separate spacer insert, and an end cap. The CAD images show the stand geometry and spacer details. Check your printed dimensions, fit, stability, and retention for your own DPV before use.",
     "images": [
       {
         "file": "assets/photos/genesis-dpv-holder-cad-01.webp",
@@ -121,9 +121,7 @@
         "alt": "End CAD view of the circular spacer insert",
         "caption": ""
       }
-    ],
-    "url": "https://runtimedivesystems.com/assets/designs/genesis-dpv-holder-spacer-insert.stl",
-    "link_label": "Download spacer STL"
+    ]
   },
   {
     "slug": "dpv-compass",
