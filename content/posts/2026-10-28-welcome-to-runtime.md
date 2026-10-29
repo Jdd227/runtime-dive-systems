@@ -13,7 +13,7 @@ The Lake Washington DPV Planner, Gas Label Studio, and Innerspace Scuba Society 
 
 I'll use this log for project updates, build photos, and notes from the process. That includes the things that work and the things that need another iteration.
 
-TriCell, my three-cell oxygen analyzer project, will also have a home here as development continues.
+The products and designs section will include my JJ tube weights, DPV dive-light holders, DPV compass, and SeeSpray anti-fog. TriCell, my three-cell oxygen analyzer project, will also have a home here as development continues.
 
 ## Rooted in the Pacific Northwest
 
