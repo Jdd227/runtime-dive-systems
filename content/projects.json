@@ -43,5 +43,17 @@
     "description": "A private home for dive groups, bringing planning, people, and shared information together.",
     "body": "Innerspace brings dive-group organization into one place. RunTime connects visitors to the platform and provides a place to follow its development.",
     "note": "Pilot-stage platform. Features and access can change as testing continues."
-  }
+  },
+  {
+  "slug": "trimix",
+  "name": "Trimix Fill Station",
+  "short": "Partial-pressure blending calculator.",
+  "category": "FILL STATION",
+  "status": "In development",
+  "url": "https://runtimedivesystems.com/software/trimix/",
+  "link_label": "Open calculator",
+  "description": "An experimental ideal-gas calculator for checking trimix blend calculations.",
+  "body": "Pressure-based trimix and nitrox calculations with fill sequences, source-gas selection, and a calculation audit.",
+  "note": "Ideal-gas validation beta. Not independently validated for operational gas filling. Verify calculations and analyze every cylinder."
+}
 ]
