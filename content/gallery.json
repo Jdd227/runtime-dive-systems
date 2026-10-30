@@ -318,5 +318,85 @@
     "caption": "",
     "width": 720,
     "height": 477
+  },
+  {
+    "file": "assets/photos/photo-41-mottled-fish-face.jpg",
+    "thumbnail": "assets/photos/photo-41-mottled-fish-face-preview.jpg",
+    "alt": "Close-up of a mottled fish showing its eye and teeth",
+    "caption": "",
+    "width": 1017,
+    "height": 1536
+  },
+  {
+    "file": "assets/photos/photo-42-fish-eye-closeup.jpg",
+    "thumbnail": "assets/photos/photo-42-fish-eye-closeup-preview.jpg",
+    "alt": "Close-up of a mottled fish with a golden eye",
+    "caption": "",
+    "width": 1536,
+    "height": 1017
+  },
+  {
+    "file": "assets/photos/photo-43-underwater-hanging-formations.jpg",
+    "thumbnail": "assets/photos/photo-43-underwater-hanging-formations-preview.jpg",
+    "alt": "Pale hanging formations in a dark underwater chamber",
+    "caption": "",
+    "width": 1536,
+    "height": 1152
+  },
+  {
+    "file": "assets/photos/photo-44-fish-teeth-closeup.jpg",
+    "thumbnail": "assets/photos/photo-44-fish-teeth-closeup-preview.jpg",
+    "alt": "Front view of a mottled fish with visible teeth",
+    "caption": "",
+    "width": 1536,
+    "height": 1211
+  },
+  {
+    "file": "assets/photos/photo-45-small-fish-under-ledge.jpg",
+    "thumbnail": "assets/photos/photo-45-small-fish-under-ledge-preview.jpg",
+    "alt": "Small fish sheltered beneath a rocky ledge",
+    "caption": "",
+    "width": 1536,
+    "height": 821
+  },
+  {
+    "file": "assets/photos/photo-46-small-fish-on-reef.jpg",
+    "thumbnail": "assets/photos/photo-46-small-fish-on-reef-preview.jpg",
+    "alt": "Small colorful fish resting on a reef beside yellow sponges",
+    "caption": "",
+    "width": 1627,
+    "height": 1910
+  },
+  {
+    "file": "assets/photos/photo-47-red-crab-and-fish.jpg",
+    "thumbnail": "assets/photos/photo-47-red-crab-and-fish-preview.jpg",
+    "alt": "Red crab beside a small fish on a colorful reef",
+    "caption": "",
+    "width": 1290,
+    "height": 1570
+  },
+  {
+    "file": "assets/photos/photo-48-spotted-fish-portrait.jpg",
+    "thumbnail": "assets/photos/photo-48-spotted-fish-portrait-preview.jpg",
+    "alt": "Pale fish with dark markings hovering above the rocky seabed",
+    "caption": "",
+    "width": 1536,
+    "height": 1017
+  },
+  {
+    "file": "assets/photos/photo-49-fish-spreading-fins.jpg",
+    "thumbnail": "assets/photos/photo-49-fish-spreading-fins-preview.jpg",
+    "alt": "Small fish spreading its large fins among kelp",
+    "caption": "",
+    "width": 1459,
+    "height": 1536
+  },
+  {
+    "file": "assets/photos/photo-50-mottled-fish-on-seabed.jpg",
+    "thumbnail": "assets/photos/photo-50-mottled-fish-on-seabed-preview.jpg",
+    "alt": "Mottled fish resting on the rocky seabed",
+    "caption": "",
+    "width": 1536,
+    "height": 1017
   }
 ]
