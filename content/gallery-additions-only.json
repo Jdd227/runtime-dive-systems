@@ -1,82 +1,82 @@
 [
   {
-    "file": "assets/photos/photo-41-mottled-fish-face.jpg",
-    "thumbnail": "assets/photos/photo-41-mottled-fish-face-preview.jpg",
-    "alt": "Close-up of a mottled fish showing its eye and teeth",
+    "file": "assets/photos/photo-51-fish-facing-camera-in-green-water.jpg",
+    "thumbnail": "assets/photos/photo-51-fish-facing-camera-in-green-water-preview.jpg",
+    "alt": "Close-up of a fish facing the camera in green water",
     "caption": "",
-    "width": 1017,
-    "height": 1536
+    "width": 1600,
+    "height": 1060
   },
   {
-    "file": "assets/photos/photo-42-fish-eye-closeup.jpg",
-    "thumbnail": "assets/photos/photo-42-fish-eye-closeup-preview.jpg",
-    "alt": "Close-up of a mottled fish with a golden eye",
+    "file": "assets/photos/photo-52-small-fish-under-red-algae.jpg",
+    "thumbnail": "assets/photos/photo-52-small-fish-under-red-algae-preview.jpg",
+    "alt": "Small fish sheltering beneath red algae near the rocky bottom",
     "caption": "",
     "width": 1536,
     "height": 1017
   },
   {
-    "file": "assets/photos/photo-43-underwater-hanging-formations.jpg",
-    "thumbnail": "assets/photos/photo-43-underwater-hanging-formations-preview.jpg",
-    "alt": "Pale hanging formations in a dark underwater chamber",
+    "file": "assets/photos/photo-53-jellyfish-with-trailing-strands.jpg",
+    "thumbnail": "assets/photos/photo-53-jellyfish-with-trailing-strands-preview.jpg",
+    "alt": "Pale jellyfish drifting in dark blue water with trailing strands",
     "caption": "",
     "width": 1536,
     "height": 1152
   },
   {
-    "file": "assets/photos/photo-44-fish-teeth-closeup.jpg",
-    "thumbnail": "assets/photos/photo-44-fish-teeth-closeup-preview.jpg",
-    "alt": "Front view of a mottled fish with visible teeth",
+    "file": "assets/photos/photo-54-fish-face-against-dark-water.jpg",
+    "thumbnail": "assets/photos/photo-54-fish-face-against-dark-water-preview.jpg",
+    "alt": "Close-up of a fish facing the camera against black water",
     "caption": "",
-    "width": 1536,
-    "height": 1211
-  },
-  {
-    "file": "assets/photos/photo-45-small-fish-under-ledge.jpg",
-    "thumbnail": "assets/photos/photo-45-small-fish-under-ledge-preview.jpg",
-    "alt": "Small fish sheltered beneath a rocky ledge",
-    "caption": "",
-    "width": 1536,
-    "height": 821
-  },
-  {
-    "file": "assets/photos/photo-46-small-fish-on-reef.jpg",
-    "thumbnail": "assets/photos/photo-46-small-fish-on-reef-preview.jpg",
-    "alt": "Small colorful fish resting on a reef beside yellow sponges",
-    "caption": "",
-    "width": 1627,
-    "height": 1910
-  },
-  {
-    "file": "assets/photos/photo-47-red-crab-and-fish.jpg",
-    "thumbnail": "assets/photos/photo-47-red-crab-and-fish-preview.jpg",
-    "alt": "Red crab beside a small fish on a colorful reef",
-    "caption": "",
-    "width": 1290,
-    "height": 1570
-  },
-  {
-    "file": "assets/photos/photo-48-spotted-fish-portrait.jpg",
-    "thumbnail": "assets/photos/photo-48-spotted-fish-portrait-preview.jpg",
-    "alt": "Pale fish with dark markings hovering above the rocky seabed",
-    "caption": "",
-    "width": 1536,
-    "height": 1017
-  },
-  {
-    "file": "assets/photos/photo-49-fish-spreading-fins.jpg",
-    "thumbnail": "assets/photos/photo-49-fish-spreading-fins-preview.jpg",
-    "alt": "Small fish spreading its large fins among kelp",
-    "caption": "",
-    "width": 1459,
+    "width": 1428,
     "height": 1536
   },
   {
-    "file": "assets/photos/photo-50-mottled-fish-on-seabed.jpg",
-    "thumbnail": "assets/photos/photo-50-mottled-fish-on-seabed-preview.jpg",
-    "alt": "Mottled fish resting on the rocky seabed",
+    "file": "assets/photos/photo-55-red-anemone.jpg",
+    "thumbnail": "assets/photos/photo-55-red-anemone-preview.jpg",
+    "alt": "Bright red anemone with a pale feathery crown underwater",
+    "caption": "",
+    "width": 1047,
+    "height": 943
+  },
+  {
+    "file": "assets/photos/photo-56-squid-in-blue-water.jpg",
+    "thumbnail": "assets/photos/photo-56-squid-in-blue-water-preview.jpg",
+    "alt": "Small squid swimming alone in clear blue water",
+    "caption": "",
+    "width": 1333,
+    "height": 1000
+  },
+  {
+    "file": "assets/photos/photo-57-blue-spotted-fish-over-reef.jpg",
+    "thumbnail": "assets/photos/photo-57-blue-spotted-fish-over-reef-preview.jpg",
+    "alt": "Dark fish with bright blue spots swimming beneath reef overhangs",
+    "caption": "",
+    "width": 1536,
+    "height": 1152
+  },
+  {
+    "file": "assets/photos/photo-58-submerged-wreck-in-blue-water.jpg",
+    "thumbnail": "assets/photos/photo-58-submerged-wreck-in-blue-water-preview.jpg",
+    "alt": "Submerged shipwreck structure fading into blue water",
+    "caption": "",
+    "width": 1333,
+    "height": 1000
+  },
+  {
+    "file": "assets/photos/photo-59-translucent-blue-animal-on-kelp.jpg",
+    "thumbnail": "assets/photos/photo-59-translucent-blue-animal-on-kelp-preview.jpg",
+    "alt": "Translucent blue marine animal resting on kelp",
     "caption": "",
     "width": 1536,
     "height": 1017
+  },
+  {
+    "file": "assets/photos/photo-60-patterned-fish-near-anemone.jpg",
+    "thumbnail": "assets/photos/photo-60-patterned-fish-near-anemone-preview.jpg",
+    "alt": "Close-up of a patterned fish beside a pale sea anemone",
+    "caption": "",
+    "width": 1270,
+    "height": 1594
   }
 ]
