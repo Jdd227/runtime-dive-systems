@@ -86,17 +86,19 @@
         "alt": "CAD rendering of the curved DPV light mounting bracket with strap openings",
         "caption": ""
       },
+      
       {
         "file": "assets/photos/dpv-light-ball-mount-cad-02.webp",
         "alt": "Side CAD view of the DPV light bracket showing its low-profile channel",
         "caption": ""
-      }
+      },
       {
-  "file": "assets/photos/dpv-light-ball-mount-installed.jpg",
-  "alt": "Ball mount installed on DPV",
-  "caption": ""
-},
+        "file": "assets/photos/dpv-light-ball-mount-installed.jpg",
+        "alt": "Ball mount installed on DPV",
+        "caption": ""
+      }
     ]
+
   },
   {
     "slug": "genesis-dpv-holder",
