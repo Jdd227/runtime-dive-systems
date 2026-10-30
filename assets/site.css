@@ -6,7 +6,7 @@
 /* About Me layout */
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 160px;
+  grid-template-columns: minmax(0, 1fr) 300px;
   gap: 30px;
   align-items: start;
 }
@@ -33,7 +33,7 @@
   }
 
   .about-layout .about-photo {
-    width: 360px;
+    width: 300px;
     justify-self: start;
   }
 }
