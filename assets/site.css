@@ -32,3 +32,20 @@
     max-width: 300px;
   }
 }
+
+/* About Me photo size fix */
+.about-layout .about-photo {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  justify-self: end;
+}
+
+@media (max-width: 700px) {
+  .about-layout .about-photo {
+    width: 200px;
+    justify-self: start;
+  }
+}
