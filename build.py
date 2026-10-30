@@ -234,5 +234,27 @@ for path in OUT.rglob('*.html'):
         if urlparse(target).scheme or target.startswith('#'):continue
         resolved=target.removeprefix(BASE).lstrip('/').split('#')[0]
         local=OUT/resolved
+        
+# Automatically generate Google sitemap and robots.txt
+SITE_URL = "https://runtimedivesystems.com"
+
+pages = []
+for page in OUT.rglob("index.html"):
+    route = page.parent.relative_to(OUT).as_posix()
+    if route == "projects/tricell":
+        continue  # Exclude old moved-project page
+    address = SITE_URL + ("/" if route == "." else f"/{route}/")
+    pages.append(address)
+
+xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+for address in sorted(pages):
+    xml += f"  <url><loc>{html.escape(address)}</loc></url>\n"
+xml += "</urlset>\n"
+
+write("sitemap.xml", xml)
+write("robots.txt",
+      f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
+
         if not local.is_file() and not (local/'index.html').is_file():raise ValueError(f'Broken internal link in {path}: {target}')
 print(f'Built {len(list(OUT.rglob("*.html")))} pages; {len(POSTS)} published posts; all internal links valid.')
