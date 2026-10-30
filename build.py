@@ -136,6 +136,8 @@ def gear_block():
 
 if OUT.exists():shutil.rmtree(OUT)
 OUT.mkdir();shutil.copytree(ROOT/'assets',OUT/'assets')
+# Publish the standalone trimix calculator
+shutil.copytree(ROOT/'software'/'trimix', OUT/'software'/'trimix')
 body=f'''<section class="hero"><img class="hero-logo" src="{url('assets/runtime-logo.png')}" alt="RunTime Technical Diving"><p class="eyebrow">Pacific Northwest</p><h1>I'm Josh, a PNW diver.</h1><p>These are the projects I've made and the things I'm still working on: software, dive gear, underwater photography, and a few ideas from the workbench.</p><div class="links"><a href="#software">See my projects ↓</a><a href="{url('about/')}">A little about me →</a></div></section>'''
 body+='<div id="software">'+section('Software projects','projects/','<div class="projects">'+''.join(project_card(p) for p in PROJECTS)+'</div>','Tools that are running, projects still in development, and links to try them.')+'</div>'
 body+=section('Underwater photography','photos/',photos_block(3),'Cold water, wrecks, and marine life in the Pacific Northwest.','View photographs')
