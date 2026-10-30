@@ -171,7 +171,18 @@ for p in POSTS:
 gear_photos=''.join(f'<figure><img src="{E(safe_link(i["file"]),quote=True)}" alt="{E(i["alt"],quote=True)}" loading="lazy">{media_caption(i)}</figure>' for i in GEAR.get('images',[]))
 body=head('Gear','My gear & configuration.',GEAR['intro'])+'<div class="page-content">'+gear_block()+f'<div class="prose"><h2>Configuration notes</h2><p>{E(GEAR["configuration"])}</p>{gear_photos}</div></div>'
 write('gear/index.html',shell('My gear & configuration',body,'My gear'))
-body=head('About','Hi, I’m Josh.','I am a Pacific Northwest diver who likes making things for diving.')+f'<article class="page-content prose"><img src="{url('assets/photos/about-josh-ccr.jpg')}" alt="Josh diving a JJ-CCR underwater" loading="lazy"><p>RunTime is where I keep my software projects, custom dive designs, underwater photography, and notes from what I am working on. Some projects are finished. Others are still being worked out.</p><p>I dive a JJ-CCR and use a DPV. The diving here, from Lake Washington wrecks to Puget Sound marine life, gives me plenty of reasons to keep exploring and building.</p><p>Giant Pacific octopuses and sixgill sharks are among the things I love about these waters.</p><p><a href="{url("projects/")}">Software projects</a> · <a href="{url("designs/")}">Products & designs</a> · <a href="{url("gear/")}">My gear</a></p></article>'
+
+body = head('About', 'Hi, I’m Josh.', 'I am a Pacific Northwest diver who likes making things for diving.')
+body += f'''<article class="page-content about-layout">
+  <div class="about-copy prose">
+    <p>RunTime is where I keep my software projects, custom dive designs, underwater photography, and notes from what I am working on. Some projects are finished. Others are still being worked out.</p>
+    <p>I dive a JJ-CCR and use a DPV. The diving here, from Lake Washington wrecks to Puget Sound marine life, gives me plenty of reasons to keep exploring and building.</p>
+    <p>Giant Pacific octopuses and sixgill sharks are among the things I love about these waters.</p>
+    <p><a href="{url('projects/')}">Software projects</a> · <a href="{url('designs/')}">Products & designs</a> · <a href="{url('gear/')}">My gear</a></p>
+  </div>
+  <img class="about-photo" src="{url('assets/photos/about-josh-ccr.jpg')}" alt="Josh diving a JJ-CCR underwater" loading="lazy">
+</article>'''
+
 write('about/index.html',shell('About Josh',body))
 all_projects=PROJECTS+PRODUCTS
 rows=''.join(f'<tr><td><a href="{url(("projects/" if p in PROJECTS else "designs/")+p["slug"]+"/")}">{E(p["name"])}</a></td><td>{badge(p)}</td></tr>' for p in all_projects)
