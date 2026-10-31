@@ -1,203 +1,110 @@
+write('designs/'+p['slug']+'/index.html',shell(p['name'],body,'Designs',p['description']))
+# Preserve links from the first site version.
+write('projects/tricell/index.html',shell('TriCell',head('Project moved','TriCell oxygen analyzer.','This project now lives with my products and designs.')+f'<div class="page-content"><a href="{url("designs/tricell/")}">Read the TriCell project notes →</a></div>','Designs'))
+write('photos/index.html',shell('Underwater photography',head('Photography','Below the surface.','My underwater photography, with a focus on the Pacific Northwest.')+'<div class="page-content">'+photos_block()+'</div>','Photography'))
+options=''.join(f'<option>{E(x)}</option>' for x in sorted({p['project'] for p in POSTS}))
+body=head('Blog','Notes from the workbench.','Project updates, things I have finished, and the work still in progress.')+f'<div class="page-content"><div class="filters"><label for="search">Find a post</label><input id="search" type="search" placeholder="Search posts…"><select id="category" aria-label="Filter posts by project"><option value="">All projects</option>{options}</select></div>'+''.join(logrow(p) for p in POSTS)+'<p id="no-results" hidden>No posts match that search.</p></div>'
+write('log/index.html',shell('Blog',body,'Blog'))
+for p in POSTS:
+    body=head(p['project']+' · '+p['date'],p['title'],p['excerpt'])+f'<article class="page-content prose">{p["body"]}<p class="detail-meta">Written by {E(SITE["author"])}</p><p><a href="{url("log/")}">← All blog posts</a></p></article>'
+    write('log/'+p['slug']+'/index.html',shell(p['title'],body,'Blog',p['excerpt']))
+gear_photos=''.join(f'<figure><img src="{E(safe_link(i["file"]),quote=True)}" alt="{E(i["alt"],quote=True)}" loading="lazy">{media_caption(i)}</figure>' for i in GEAR.get('images',[]))
+body=head('Gear','My gear & configuration.',GEAR['intro'])+'<div class="page-content">'+gear_block()+f'<div class="prose"><h2>Configuration notes</h2><p>{E(GEAR["configuration"])}</p>{gear_photos}</div></div>'
+write('gear/index.html',shell('My gear & configuration',body,'My gear'))
 
-[
-  {
-    "slug": "jj-tube-weights",
-    "name": "JJ tube weights",
-    "type": "Custom weights",
-    "status": "Made",
-    "description": "Custom tube weights I made for my JJ-CCR.",
-    "body": "Custom tube weights I made for my JJ-CCR. These photos and videos document the workbench setup, the finished pair, weight checks, and how they fit into my setup.",
-    "images": [
-      {
-        "file": "assets/photos/jj-tube-weights-finished-pair.jpg",
-        "alt": "The finished pair of JJ tube weights.",
-        "caption": "Finished and wrapped in electrical tape"
-      },
-      {
-        "file": "assets/photos/jj-tube-weights-fitted-weight.jpg",
-        "alt": "A tube weight fitted into my JJ setup.",
-        "caption": "Fits tight, JJ handle stays fully up"
-      },
-      {
-        "file": "assets/photos/jj-tube-weights-fit-detail.jpg",
-        "alt": "Close-up of the weight and its fit.",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/jj-tube-weights-workbench.jpg",
-        "alt": "Equipment on the workbench during the build.",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/jj-tube-weights-mold-jig.jpg",
-        "alt": "The upright tubes supported in a wooden jig.",
-        "caption": "Foil prevented any moisture issues in the wood"
-      },
-      {
-        "file": "assets/photos/jj-tube-weights-weighing-first.jpg",
-        "alt": "Checking one tube on the scale.",
-        "caption": "Was hoping for 8lbs total"
-      },
-      {
-        "file": "assets/photos/jj-tube-weights-weighing-second.jpg",
-        "alt": "Checking the other tube on the scale.",
-        "caption": ""
-      }
-    ],
-    "videos": [
-      {
-        "file": "assets/photos/jj-tube-weights-casting-process.mp4",
-        "poster": "assets/photos/jj-tube-weights-casting-process-poster.jpg",
-        "caption": "",
-        "alt": "A closer look at the tubes during the build."
-      },
-      {
-        "file": "assets/photos/jj-tube-weights-workbench-video.mp4",
-        "poster": "assets/photos/jj-tube-weights-workbench-video-poster.jpg",
-        "caption": "",
-        "alt": "A look around the tube-weight workbench setup."
-      }
-    ]
-  },
-  {
-    "slug": "dpv-light-holders",
-    "name": "DPV light ball mount holder",
-    "type": "DPV light accessory",
-    "status": "Made",
-    "description": "3D-printed ball mount holder for attaching a dive light arm to a DPV using a tank strap.",
-    "body": "I designed this to fit the Blacktip, but it works on every DPV,  The TPU part provides friction and prevents sliding during install.  I use a tank strap and its very solid.  Ive tested the print in ABS and PET-G, both hold up well in salt water.  Here is the link to the ball mounts I used, https://www.amazon.com/dp/B0BXWWRRJ9?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_4",
-    "images": [
-      {
-        "file": "assets/photos/dpv-light-ball-mount-built-01.webp",
-        "alt": "Front and back views of a printed DPV light ball mount holder with mounting holes, padding strips, and ball stud",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/dpv-light-ball-mount-built-02.webp",
-        "alt": "Angled view of the printed DPV light bracket and mounted metal ball stud",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/dpv-light-ball-mount-built-03.webp",
-        "alt": "Front view of a black DPV light ball mount holder with mounting holes and strap slot",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/dpv-light-ball-mount-cad-01.webp",
-        "alt": "CAD rendering of the curved DPV light mounting bracket with strap openings",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/dpv-light-ball-mount-cad-02.webp",
-        "alt": "Side CAD view of the DPV light bracket showing its low-profile channel",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/dpv-light-ball-mount-installed.jpg",
-        "alt": "Ball mount installed on DPV",
-        "caption": ""
-      }
-    ]
-  },
-  {
-    "slug": "genesis-dpv-holder",
-    "name": "Genesis DPV stand",
-    "type": "3D-printed DPV stand",
-    "status": "Made",
-    "description": "My 3D-printed Genesis DPV stand with curved cradles, a spacer insert, and an end cap.",
-    "body": "I designed this stand to fit the Genesis DPV.  The stand will fit a Blacktip as well.  I also use this to transport the scooter to the dives sites.  The tube and cap parts are glued into the stands.  The design also accepts a 2x4 through the stands",
-    "images": [
-      {
-        "file": "assets/photos/genesis-dpv-stand-finished-01.jpg",
-        "alt": "Genesis DPV supported by the finished red, white and blue 3D-printed stand",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/genesis-dpv-stand-finished-02.jpg",
-        "alt": "Finished Genesis DPV stand and scooter photographed from the rear",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/genesis-dpv-stand-finished-03.jpg",
-        "alt": "Close view of the red, white and blue printed cradle supports and connecting bars",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/genesis-dpv-holder-cad-01.webp",
-        "alt": "CAD rendering of the Genesis DPV holder with multiple curved support surfaces",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/genesis-dpv-holder-cad-02.webp",
-        "alt": "Angled CAD rendering showing Genesis DPV holder cradles, ribs, and openings",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/genesis-dpv-holder-spacer-cad-01.webp",
-        "alt": "Side CAD model of a cylindrical spacer insert",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/genesis-dpv-holder-spacer-cad-02.webp",
-        "alt": "End CAD view of the circular spacer insert",
-        "caption": ""
-      }
-    ]
-  },
-  {
-    "slug": "dpv-compass",
-    "name": "Genesis DPV Compass Mount",
-    "type": "Navigation accessory",
-    "status": "Made",
-    "description": "A compact compass mount for the Genesis DPV that attaches using a tank strap or bungee.",
-    "body": "I designed this simple compass mount for my Genesis DPV. It attaches using a tank strap or bungee and allows magnetic correction for the installed compass. I tested it with the DPV and observed no magnetic interference from the scooter. The STL file is available to download from the Designs listing. Confirm compass accuracy and attachment security with your own equipment before use.",
-    "url": "https://runtimedivesystems.com/assets/designs/genesis-dpv-compass-mount.stl",
-    "link_label": "Download STL",
-    "images": [
-      {
-        "file": "assets/photos/genesis-dpv-compass-installed-01.jpg",
-        "alt": "3D-printed compass mount strapped to the Genesis DPV with blue compass installed",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/genesis-dpv-compass-installed-02.jpg",
-        "alt": "Top view of compass and curved 3D-printed mount secured to a Genesis DPV",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/genesis-dpv-compass-mount.webp",
-        "alt": "CAD model of the Genesis DPV compass mount with a curved base, strap slot, and circular compass holder",
-        "caption": ""
-      }
-    ]
-  },
-  {
-    "slug": "seespray",
-    "name": "SeeSpray anti-fog",
-    "type": "Anti-fog spray",
-    "status": "Made",
-    "description": "My anti-fog spray project.",
-    "body": "I originally developed SeeSpray because I wanted a better way to prevent my dive mask from fogging. I never liked using my finger to rub anti-fog gel around the inside of my mask or having to spit into it before every dive. Your fingers leave oils behind, and the whole point is to keep the lens clean.\n\nI wanted something simple. Just shake, spray, rinse, and dive. No rubbing required.\n\nAfter experimenting with several formulas, I landed on Formula #7.\n\n## My Original Formula #7\n\n- 1 part vegetable glycerin\n- 1 part Johnson's No More Tears Baby Shampoo\n- 1 part 70% isopropyl alcohol\n- 8 parts distilled water\n\nThe formula works by leaving a very thin film across the lens. This helps prevent condensation from forming the tiny droplets that cause fogging. Even after a quick rinse, enough of that film remains to do its job.\n\nI've tested Formula #7 with divers in different locations around the world, and it's worked great. It's lightweight, easy to apply, and doesn't require rubbing anything into the mask.\n\nThe biggest thing I've learned is that anti-fog works best when you start with a properly cleaned mask. Oils and residue can interfere with even a good formula.\n\n**A clean mask is a clear mask!**",
-    "images": [
-      {
-        "file": "assets/photos/seespray-front.jpg",
-        "alt": "Front of 2 oz SeeSpray anti-fog spray bottle with blue label",
-        "caption": ""
-      },
-      {
-        "file": "assets/photos/seespray-back.jpg",
-        "alt": "Reverse of SeeSpray anti-fog bottle showing Shake Spray Rinse directions and Made in the PNW label",
-        "caption": ""
-      }
-    ]
-  },
-  {
-    "slug": "tricell",
-    "name": "TriCell oxygen analyzer",
-    "type": "Electronics & printed housing",
-    "status": "In development",
-    "description": "A three-cell oxygen analyzer project, kind of a silly project but I have the cells to play with.  Currently working on the bench on a breadboard.  Next task is to create a housing that organizes the cells and allows for proper gas flow over the cells.",
-    "body": "Work in progress on a three-sensor oxygen analyzer. This is a development prototype, not a validated diving instrument. I will document the electronics, enclosure iterations, and testing in the blog.",
-    "images": []
-  }
-]
+body = head('About', 'Hi, I’m Josh.', 'I am a Pacific Northwest diver who likes making things for diving.')
+body += f'''<article class="page-content about-layout">
+  <div class="about-copy prose">
+    <p>RunTime is where I keep my software projects, custom dive designs, underwater photography, and notes from what I am working on. Some projects are finished. Others are still being worked out.</p>
+    <p>I dive a JJ-CCR and use a DPV. The diving here, from Lake Washington wrecks to Puget Sound marine life, gives me plenty of reasons to keep exploring and building.</p>
+    <p>Giant Pacific octopuses and sixgill sharks are among the things I love about these waters.</p>
+    <p><a href="{url('projects/')}">Software projects</a> · <a href="{url('designs/')}">Products & designs</a> · <a href="{url('gear/')}">My gear</a></p>
+  </div>
+  <img class="about-photo" src="{url('assets/photos/about-josh-ccr.jpg')}" alt="Josh diving a JJ-CCR underwater" loading="lazy">
+</article>'''
+
+write('about/index.html',shell('About Josh',body))
+all_projects=PROJECTS+PRODUCTS
+rows=''.join(f'<tr><td><a href="{url(("projects/" if p in PROJECTS else "designs/")+p["slug"]+"/")}">{E(p["name"])}</a></td><td>{badge(p)}</td></tr>' for p in all_projects)
+write('status/index.html',shell('Project status',head('Projects','Where things stand.','These labels describe development progress, not monitored uptime, independent testing, or certification.')+'<div class="page-content"><table class="status-table"><thead><tr><th>Project</th><th>Stage</th></tr></thead><tbody>'+rows+'</tbody></table></div>'))
+privacy='''## What this policy covers
+
+This policy covers the RunTime Dive Systems portfolio and blog at runtimedivesystems.com. It does not cover the separate applications linked from this site.
+
+## What this site collects
+
+This version of the site has no visitor accounts, contact forms, comments, checkout, email subscriptions, advertising, or analytics scripts. RunTime does not set application cookies or use browser storage on these pages. This site uses system fonts and serves its logos, scripts, and photographs with the site; no third-party font or social-media embeds are loaded.
+
+## Hosting and technical data
+
+The site is hosted using GitHub Pages. GitHub and its infrastructure providers may process technical request information, such as IP addresses, browser details, requested pages, and request times, to deliver and protect the service. Their handling and retention of that information are governed by their own policies. I do not promise that hosting logs are never collected or retained.
+
+[Read GitHub's privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+
+## Linked apps and websites
+
+Opening a software project or another external link takes you to a separate service. That service may collect data, use accounts or storage, or have different privacy practices. Check its own policy before using it. In particular, this portfolio's privacy statements do not describe the data handling of Innerspace, Gas Label Studio, the DPV Planner, or Dive Current.
+
+## Information you choose to share
+
+If you post an issue or comment on GitHub, your submission may be public. GitHub handles that submission under its terms and privacy policy. Do not post private information there.
+
+## Questions and updates
+
+For questions about this site's privacy practices, contact Josh through the [RunTime repository](https://github.com/Jdd227/runtime-dive-systems). If the site adds forms, analytics, sales, or other data collection, this policy will be updated to describe those changes.
+'''
+write('privacy/index.html',shell('Privacy policy',head('Privacy','Privacy policy.','Last updated October 28, 2026.')+'<article class="page-content prose">'+markdown(privacy)+'</article>'))
+safety='''## Personal projects, not safety systems
+
+These are my personal projects, designs, experiments, and notes. They are shared to show what I am working on. A project being listed as made, live, or complete does not mean it has been independently tested, certified, or approved for diving use.
+
+Do not use anything on this site in place of normal safety products or equipment, established procedures, appropriate training, manufacturer instructions, official charts or maps, or independent dive planning.
+
+## Software, maps, and navigation
+
+Software may contain errors, and data may be missing, inaccurate, or out of date. Positions, route distances, bearings, bathymetry, forecasts, gas labels, and calculated outputs must be independently checked. These projects are not primary underwater navigation systems, official hydrographic charts, or substitutes for current local information, suitable instruments, gas analysis, bailout planning, and competent judgment.
+
+## Designs, modifications, and equipment
+
+Custom parts, mounts, weights, electronics, printed designs, and equipment modifications can fail or change the behavior of a system. Materials, print settings, fit, corrosion, load, depth, rigging, and attachment methods matter. A photograph or shared file does not demonstrate suitability for your equipment or dive. Follow manufacturer instructions and obtain qualified advice before making or using a modification. Development prototypes must not be treated as validated life-support instruments.
+
+## My gear is a personal record
+
+My equipment and configuration are shown for documentation. They are not a prescription for anyone else's setup or a claim that a configuration is suitable for a particular dive.
+
+## No guarantee of suitability
+
+The content and projects are provided as available, without a promise of accuracy, reliability, availability, performance, or fitness for a particular purpose. Stop using a project if its behavior or output is uncertain. This warning is not training, a risk assessment, or a replacement for applicable legal rights and responsibilities.
+'''
+write('safety/index.html',shell('Project-use warning',head('Please read','Project-use warning.','Personal work, shared for documentation.')+'<article class="page-content prose">'+markdown(safety)+'</article>'))
+write('404.html',shell('Page not found',head('404','Page not found.')+f'<div class="page-content"><a href="{url()}">Back to RunTime →</a></div>'))
+write('.nojekyll','')
+for path in OUT.rglob('*.html'):
+    for target in re.findall(r'(?:href|src)="([^"]+)"',path.read_text()):
+        target=html.unescape(target)
+        if urlparse(target).scheme or target.startswith('#'):continue
+        resolved=target.removeprefix(BASE).lstrip('/').split('#')[0]
+        local=OUT/resolved
+        if not local.is_file() and not (local/'index.html').is_file():raise ValueError(f'Broken internal link in {path}: {target}')
+print(f'Built {len(list(OUT.rglob("*.html")))} pages; {len(POSTS)} published posts; all internal links valid.')
+
+# Automatically generate Google sitemap and robots.txt
+SITE_URL = "https://runtimedivesystems.com"
+
+pages = []
+for page in OUT.rglob("index.html"):
+    route = page.parent.relative_to(OUT).as_posix()
+    if route == "projects/tricell":
+        continue  # Exclude old moved-project page
+    address = SITE_URL + ("/" if route == "." else f"/{route}/")
+    pages.append(address)
+
+xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+for address in sorted(pages):
+    xml += f"  <url><loc>{html.escape(address)}</loc></url>\n"
+xml += "</urlset>\n"
+
+write("sitemap.xml", xml)
+write("robots.txt",
+      f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
