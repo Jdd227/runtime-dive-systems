@@ -177,7 +177,18 @@
     "status": "Made",
     "description": "My anti-fog spray project.",
     "body": "SeeSpray is an anti-fog product I developed. This page is a home for product photos, development notes, and the story behind the project.",
-    "images": []
+    "images": [
+      {
+        "file": "assets/photos/seespray-front.jpg",
+        "alt": "Front of 2 oz SeeSpray anti-fog spray bottle with blue label",
+        "caption": ""
+      },
+      {
+        "file": "assets/photos/seespray-back.jpg",
+        "alt": "Reverse of SeeSpray anti-fog bottle showing Shake Spray Rinse directions and Made in the PNW label",
+        "caption": ""
+      }
+    ]
   },
   {
     "slug": "tricell",
