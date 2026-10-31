@@ -64,7 +64,7 @@
     "type": "DPV light accessory",
     "status": "Made",
     "description": "3D-printed ball mount holder for attaching a dive light arm to a DPV using a tank strap.",
-    "body": "I designed and printed this low-profile ball-mount bracket to secure a dive light arm to a DPV using a tank strap. The printed bracket has a central ball-mount stud for compatible light hardware. The available print files are the BlackTip ball-mount bracket STL and its separate TPU squishy insert STL. The photographs show the finished parts, mounting holes, strap opening, and ball stud. Fit, material selection, strap retention, and attachment security need to be checked for your own DPV and lighting setup.",
+    "body": "I designed this to fit the Blacktip, but it works on every DPV,  The TPU part provides friction and prevents sliding during install.  I use a tank strap and its very solid.  Ive tested the print in ABS and PET-G, both hold up well in salt water.  Here is the link to the ball mounts I used, https://www.amazon.com/dp/B0BXWWRRJ9?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_4",
     "images": [
       {
         "file": "assets/photos/dpv-light-ball-mount-built-01.webp",
