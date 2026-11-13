@@ -96,11 +96,12 @@ def badge(p):
     return f'<span class="status {cls}">{E(p["status"])}</span>'
 
 WARNING='These are my personal projects and experiments. Do not use them in place of normal safety equipment, established dive procedures, training, manufacturer instructions, official charts or maps, or independent dive planning.'
-NAV=[('Software','projects/'),('Photography','photos/'),('Blog','log/'),('Designs','designs/'),('My gear','gear/')]
+NAV=[('Software','projects/'),('Photography','photos/'),('Blog','log/'),('Designs','designs/'),('My gear','gear/'),('Recovery','recovery/')]
 
 def shell(title,body,active='',description=None):
+    extra_js = f'<script src="{url("assets/recovery.js")}" defer></script>' if active == 'Recovery' else ''
     nav=''.join(f'<a href="{url(path)}"'+(' aria-current="page"' if label==active else '')+f'>{label}</a>' for label,path in NAV)
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} | RunTime Dive Systems</title><meta name="description" content="{E(description or SITE['description'],quote=True)}"><meta name="theme-color" content="#0c1014"><meta property="og:title" content="{E(title,quote=True)} | RunTime Dive Systems"><meta property="og:description" content="{E(description or SITE['description'],quote=True)}"><meta property="og:type" content="website"><link rel="icon" href="{url('assets/runtime-monogram.png')}" type="image/png"><link rel="stylesheet" href="{url('assets/site.css')}"><script src="{url('assets/site.js')}" defer></script></head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap header-inner"><a class="brand" href="{url()}" aria-label="RunTime home"><img class="mark" src="{url('assets/runtime-monogram.png')}" alt=""><img class="wordmark" src="{url('assets/runtime-logo.png')}" alt="RunTime Technical Diving"></a><button class="menu" aria-expanded="false" aria-controls="navigation" type="button">Menu</button><nav id="navigation" aria-label="Main navigation">{nav}</nav></div></header><main id="main" class="wrap">{body}</main><footer><div class="wrap"><div class="footer-top"><span>© {dt.date.today().year} RunTime Dive Systems · Josh · Pacific Northwest</span><nav aria-label="Footer"><a href="{url('about/')}">About</a><a href="{url('status/')}">Project status</a><a href="{url('privacy/')}">Privacy</a><a href="{url('safety/')}">Project-use warning</a></nav></div><p class="footer-warning">{E(WARNING)} <a href="{url('safety/')}">Read the full warning.</a></p></div></footer></body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} | RunTime Dive Systems</title><meta name="description" content="{E(description or SITE['description'],quote=True)}"><meta name="theme-color" content="#0c1014"><meta property="og:title" content="{E(title,quote=True)} | RunTime Dive Systems"><meta property="og:description" content="{E(description or SITE['description'],quote=True)}"><meta property="og:type" content="website"><link rel="icon" href="{url('assets/runtime-monogram.png')}" type="image/png"><link rel="stylesheet" href="{url('assets/site.css')}"><link rel="stylesheet" href="{url('assets/recovery.css')}"><script src="{url('assets/site.js')}" defer></script>{extra_js}</head><body><a class="skip" href="#main">Skip to content</a><header><div class="wrap header-inner"><a class="brand" href="{url()}" aria-label="RunTime home"><img class="mark" src="{url('assets/runtime-monogram.png')}" alt=""><img class="wordmark" src="{url('assets/runtime-logo.png')}" alt="RunTime Technical Diving"></a><button class="menu" aria-expanded="false" aria-controls="navigation" type="button">Menu</button><nav id="navigation" aria-label="Main navigation">{nav}</nav></div></header><main id="main" class="wrap">{body}</main><footer><div class="wrap"><div class="footer-top"><span>© {dt.date.today().year} RunTime Dive Systems · Josh · Pacific Northwest</span><nav aria-label="Footer"><a href="{url('about/')}">About</a><a href="{url('status/')}">Project status</a><a href="{url('privacy/')}">Privacy</a><a href="{url('safety/')}">Project-use warning</a></nav></div><p class="footer-warning">{E(WARNING)} <a href="{url('safety/')}">Read the full warning.</a></p></div></footer></body></html>'''
 
 def head(kicker,title,intro=''):
     return f'<div class="page-head"><p class="eyebrow">{E(kicker)}</p><h1>{E(title)}</h1>'+ (f'<p class="intro">{E(intro)}</p>' if intro else '')+'</div>'
@@ -141,6 +142,7 @@ shutil.copytree(ROOT/'software'/'trimix', OUT/'software'/'trimix')
 body=f'''<section class="hero"><img class="hero-logo" src="{url('assets/runtime-logo.png')}" alt="RunTime Technical Diving"><p class="eyebrow">Pacific Northwest</p><h1>I'm Josh, a PNW diver.</h1><p>These are the projects I've made and the things I'm still working on: software, dive gear, underwater photography, and a few ideas from the workbench.</p><div class="links"><a href="#software">See my projects ↓</a><a href="{url('about/')}">A little about me →</a></div></section>'''
 body+='<div id="software">'+section('Software projects','projects/','<div class="projects">'+''.join(project_card(p) for p in PROJECTS)+'</div>','Tools that are running, projects still in development, and links to try them.')+'</div>'
 body+=section('Underwater photography','photos/',photos_block(3),'Cold water, wrecks, and marine life in the Pacific Northwest.','View photographs')
+body+=section('Underwater recovery','recovery/','<p class="section-intro">Lost equipment or property underwater? I take on select recovery projects in Puget Sound and Western Washington.</p><p><a class="button" href="'+url('recovery/')+'">Request a recovery →</a></p>','','Request a recovery')
 body+=section('Products & designs','designs/','<div class="projects">'+''.join(project_card(p,True) for p in PRODUCTS)+'</div>','Things I have made for diving, plus the projects still on the bench.')
 body+=section('Blog','log/',''.join(logrow(p) for p in POSTS[:3]),'Updates about what I am building, changing, or finishing.','All posts')
 body+=section('My gear & configuration','gear/',gear_block(),GEAR['intro'],'See my setup')
@@ -187,13 +189,18 @@ write('about/index.html',shell('About Josh',body))
 all_projects=PROJECTS+PRODUCTS
 rows=''.join(f'<tr><td><a href="{url(("projects/" if p in PROJECTS else "designs/")+p["slug"]+"/")}">{E(p["name"])}</a></td><td>{badge(p)}</td></tr>' for p in all_projects)
 write('status/index.html',shell('Project status',head('Projects','Where things stand.','These labels describe development progress, not monitored uptime, independent testing, or certification.')+'<div class="page-content"><table class="status-table"><thead><tr><th>Project</th><th>Stage</th></tr></thead><tbody>'+rows+'</tbody></table></div>'))
+
+# Recovery page
+recovery_body = (ROOT/'content/recovery.html').read_text()
+write('recovery/index.html',shell('Underwater Search & Recovery',recovery_body,'Recovery','Underwater search and recovery inquiries for Puget Sound and Western Washington.'))
+
 privacy='''## What this policy covers
 
 This policy covers the RunTime Dive Systems portfolio and blog at runtimedivesystems.com. It does not cover the separate applications linked from this site.
 
 ## What this site collects
 
-This version of the site has no visitor accounts, contact forms, comments, checkout, email subscriptions, advertising, or analytics scripts. RunTime does not set application cookies or use browser storage on these pages. This site uses system fonts and serves its logos, scripts, and photographs with the site; no third-party font or social-media embeds are loaded.
+This site has no visitor accounts, checkout, comments, subscriptions, advertising, or analytics scripts. The recovery inquiry form creates an email draft in your email application; the site does not send or store the information you enter. If you choose to send the draft, the contents are processed by your email provider and the recipient’s email provider. RunTime does not set application cookies or use browser storage on these pages. The site uses system fonts and local assets.
 
 ## Hosting and technical data
 
@@ -211,9 +218,9 @@ If you post an issue or comment on GitHub, your submission may be public. GitHub
 
 ## Questions and updates
 
-For questions about this site's privacy practices, contact Josh through the [RunTime repository](https://github.com/Jdd227/runtime-dive-systems). If the site adds forms, analytics, sales, or other data collection, this policy will be updated to describe those changes.
+For questions about this site's privacy practices, contact Josh through the [RunTime repository](https://github.com/Jdd227/runtime-dive-systems). If the site adds analytics, sales, or other data collection, this policy will be updated.
 '''
-write('privacy/index.html',shell('Privacy policy',head('Privacy','Privacy policy.','Last updated October 28, 2026.')+'<article class="page-content prose">'+markdown(privacy)+'</article>'))
+write('privacy/index.html',shell('Privacy policy',head('Privacy','Privacy policy.','Last updated November 13, 2026.')+'<article class="page-content prose">'+markdown(privacy)+'</article>'))
 safety='''## Personal projects, not safety systems
 
 These are my personal projects, designs, experiments, and notes. They are shared to show what I am working on. A project being listed as made, live, or complete does not mean it has been independently tested, certified, or approved for diving use.
