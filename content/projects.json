@@ -49,7 +49,7 @@
   "name": "Trimix Fill Station",
   "short": "Partial-pressure blending calculator.",
   "category": "FILL STATION",
-  "status": "In development",
+  "status": "Live / ongoing",
   "url": "https://runtimedivesystems.com/software/trimix/",
   "link_label": "Open calculator",
   "description": "An experimental ideal-gas calculator for checking trimix blend calculations.",
