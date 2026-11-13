@@ -1,0 +1,12 @@
+RunTime Recovery missing files repair
+
+The latest GitHub main branch already contains the updated build.py.
+Upload only the following three files to the repository root, preserving paths:
+assets/recovery.css
+assets/recovery.js
+content/recovery.html
+
+On GitHub: Code > Add file > Upload files. Extract this ZIP, and drag the assets and content folders (not the ZIP itself) into the upload area. Review 'Files changed' to confirm paths are assets/recovery.css, assets/recovery.js, and content/recovery.html, then commit to main.
+
+Check Actions > Publish RunTime to confirm deployment succeeds.
+Open https://runtimedivesystems.com/recovery/ afterward.
