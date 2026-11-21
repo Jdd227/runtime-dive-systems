@@ -1,255 +1,96 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0e11">
+<meta name="description" content="RunTime FishWatch: underwater camera activity archive. Browse saved motion-triggered clips and snapshots.">
 <title>FishWatch | RunTime Dive Systems</title>
 <style>
-:root{color-scheme:dark;--bg:#0b0c0e;--panel:#191b1f;--border:#383b40;--muted:#adb0b5}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#eee;font:15px/1.5 system-ui,-apple-system,sans-serif}
-a{color:inherit}
-.wrap{max-width:1200px;margin:auto;padding:0 22px}
-header{border-bottom:1px solid var(--border);padding:20px 0}
-header .wrap{display:flex;align-items:center;justify-content:space-between}
-header a{text-decoration:none}
-header strong{letter-spacing:.13em}
-header small{display:block;letter-spacing:.22em;color:var(--muted);font-size:9px}
-h1{font-size:clamp(45px,8vw,88px);letter-spacing:-.055em;line-height:1;margin:22px 0 15px}
-h2{font-size:19px;margin:0 0 10px}
-.hero{padding:50px 0 34px;border-bottom:1px solid var(--border)}
-.hero p{color:var(--muted);max-width:700px}
-.eyebrow{font:12px ui-monospace,monospace;letter-spacing:.15em;text-transform:uppercase}
-.status{font:12px ui-monospace,monospace;border:1px solid var(--border);border-radius:20px;padding:7px 13px;display:inline-block;margin-top:15px}
-.panel{border:1px solid var(--border);background:var(--panel);border-radius:12px;padding:22px;margin:25px 0}
-.panel p,.muted{color:var(--muted)}
-button,.pick{background:#eee;color:#111;border:0;border-radius:6px;padding:12px 16px;font-weight:700;cursor:pointer;font:inherit}
-input[type=file]{display:none}
-.pick{display:inline-block}
-.control{display:flex;align-items:center;gap:15px;flex-wrap:wrap}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.metric{border:1px solid var(--border);padding:20px;background:var(--panel);border-radius:10px}
-.metric strong{display:block;font-size:30px}
-.metric span{font-size:12px;color:var(--muted)}
-.toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin:26px 0 16px}
-.toolbar input{color:#eee;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:13px;min-width:min(350px,100%)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:15px;padding-bottom:60px}
-.card{border:1px solid var(--border);background:var(--panel);border-radius:10px;overflow:hidden}
-.image{aspect-ratio:16/9;background:#26282c;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted)}
-.image img{height:100%;width:100%;object-fit:cover}
-.body{padding:17px}
-.body h3{margin:0 0 6px}
-.body p{font-size:12px;color:var(--muted)}
-.tag{display:inline-block;border:1px solid #555;border-radius:3px;padding:3px 7px;font:10px ui-monospace,monospace;text-transform:uppercase}
-.card button{display:block;width:100%;margin-top:13px;border:1px solid #888;background:transparent;color:white}
-.card button:disabled{opacity:.45}
-.empty{border:1px dashed var(--border);border-radius:10px;padding:36px;color:var(--muted);grid-column:1/-1;text-align:center}
-dialog{background:var(--panel);color:white;border:1px solid #555;border-radius:10px;width:min(900px,95vw);padding:15px}
-dialog::backdrop{background:#000c}
-dialog video{display:block;max-height:70vh;width:100%;background:black}
-dialog .control{justify-content:space-between;padding:4px 0 14px}
-footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted);font-size:12px}
-@media(max-width:600px){.metric{padding:12px}.metric strong{font-size:22px}}
+:root{color-scheme:dark;--bg:#0b0c0f;--panel:#171a1e;--fg:#eceff1;--muted:#a0a8ad;--stroke:#363b42;--good:#a5d9b6;--bad:#e2b2b2}
+*{box-sizing:border-box}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{margin:0;background:var(--bg);color:var(--fg);line-height:1.5}
+a{color:inherit}button,input,select{font:inherit}.wrap{max-width:1240px;padding:0 24px;margin:0 auto}
+header{border-bottom:1px solid var(--stroke)}.header{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:16px}.logo{font-size:18px;font-weight:850;line-height:1.1;letter-spacing:.17em;text-decoration:none}.logo small{display:block;color:var(--muted);font-size:9px;letter-spacing:.22em;margin-top:6px}.toplinks{display:flex;gap:20px;font-size:13px;color:var(--muted)}.toplinks a{text-decoration:none}.toplinks a:hover{color:white}
+.hero{border-bottom:1px solid var(--stroke);padding:55px 0 35px}.eyebrow{font:11px/1.5 ui-monospace,SFMono-Regular,monospace;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}h1{font-size:clamp(47px,8vw,85px);letter-spacing:-.065em;line-height:1.05;margin:13px 0 18px}.intro{font-size:16px;color:var(--muted);max-width:690px;margin:0}.herofoot{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:25px}.status{font:12px ui-monospace,SFMono-Regular,monospace;color:var(--muted);border:1px solid var(--stroke);border-radius:50px;padding:8px 13px}.status[data-online="true"]{border-color:#40674e;color:var(--good)}.status[data-online="false"]{border-color:#714343;color:var(--bad)}
+main{padding-top:28px;padding-bottom:70px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.metric{background:var(--panel);border:1px solid var(--stroke);border-radius:10px;padding:19px}.metric strong{display:block;font-size:28px;letter-spacing:-.04em}.metric span{font-size:12px;color:var(--muted)}.info{font-size:13px;color:var(--muted);line-height:1.65;max-width:850px;margin:24px 0 30px}.toolbar{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap;margin:35px 0 17px}.toolbar h2{font-size:22px;letter-spacing:-.025em;margin:0}.tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.input{background:var(--panel);border:1px solid var(--stroke);color:white;padding:11px 12px;border-radius:7px;min-width:min(270px,100%)}.refresh{cursor:pointer;background:transparent;border:1px solid #656970;color:white;padding:11px 15px;border-radius:7px}.refresh:hover{background:#292d33}.refresh:disabled{opacity:.5;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:15px}.card{background:var(--panel);border:1px solid var(--stroke);border-radius:10px;overflow:hidden}.image{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:#24272a;color:var(--muted);font-size:12px;overflow:hidden}.image img{width:100%;height:100%;object-fit:cover}.cardbody{padding:17px}.cardbody h3{font-size:16px;margin:0 0 8px;line-height:1.4}.time{font-size:12px;color:var(--muted)}.tag{display:inline-block;font:10px ui-monospace,SFMono-Regular,monospace;border:1px solid #494e53;border-radius:4px;color:#d3d6d8;padding:5px 7px;text-transform:uppercase;margin-bottom:9px}.notes{font-size:12px;color:var(--muted);min-height:36px;line-height:1.5}.play{display:block;text-align:center;text-decoration:none;width:100%;border:1px solid #787d83;border-radius:6px;background:transparent;color:white;font-weight:600;padding:10px;margin-top:11px;cursor:pointer}.play:hover{background:#303339}.play:disabled{opacity:.4;cursor:not-allowed}.empty{grid-column:1/-1;text-align:center;border:1px dashed var(--stroke);border-radius:10px;color:var(--muted);padding:48px 24px}.empty strong{display:block;color:#e2e6e8;margin-bottom:8px}
+footer{border-top:1px solid var(--stroke);font-size:12px;color:var(--muted);padding:25px 0}
+dialog{width:min(940px,calc(100% - 24px));border:1px solid #565b61;border-radius:9px;background:var(--panel);padding:0;color:#fff}dialog::backdrop{background:#000c}.playerbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;gap:12px;border-bottom:1px solid var(--stroke)}.playerbar strong{font-size:14px}.playerbar button{color:#fff;background:transparent;border:1px solid #6b6d73;border-radius:6px;cursor:pointer;padding:8px 13px}dialog video{width:100%;max-height:75vh;display:block;background:#000}.playerfoot{padding:14px 18px;display:flex;gap:15px;flex-wrap:wrap;justify-content:space-between;font-size:12px;color:var(--muted)}.playerfoot a{color:#e0e4e6}
+@media(max-width:640px){.wrap{padding:0 16px}.hero{padding-top:37px}.toplinks{gap:10px}.toplinks a:first-child{display:none}.metric{padding:13px}.metric strong{font-size:22px}.tools,.input{width:100%}.input{flex:1}.refresh{flex:0 0 auto}}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a href="/">
-      <strong>RUNTIME</strong>
-      <small>DIVE SYSTEMS</small>
-    </a>
-    <a href="/projects/">Projects</a>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <div class="eyebrow">RunTime / Wildlife observation / v0.2</div>
-    <h1>FishWatch.</h1>
-    <p>Automated underwater livestream monitoring. Review saved motion events locally, and build a marine wildlife sighting archive.</p>
-    <span class="status">LOCAL ARCHIVE · AI ID COMING LATER</span>
-  </div>
-</section>
-
+<header><div class="wrap header"><a class="logo" href="/">RUNTIME<small>DIVE SYSTEMS</small></a><nav class="toplinks"><a href="/projects/">Projects</a><a href="https://www.youtube.com/live/6uSmHN47Qd0" target="_blank" rel="noopener noreferrer">Watch livestream</a></nav></div></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">RUNTIME / MARINE OBSERVATIONS / v0.4</div><h1>FishWatch.</h1><p class="intro">An automated record of activity from an underwater livestream. View captured motion events, snapshots and clips as they appear.</p><div class="herofoot"><span class="status" id="connection" data-online="unknown">CONNECTING TO ARCHIVE</span><span id="updated" class="eyebrow">Waiting for feed status</span></div></div></section>
 <main class="wrap">
-  <section class="panel">
-    <h2>Open a FishWatch archive</h2>
-    <p>Select your <code>fishwatch_output</code> folder. Clips and snapshots stay on your Mac. This page doesn't upload or publish them.</p>
-    <div class="control">
-      <label class="pick">Choose output folder
-        <input id="folder" type="file" webkitdirectory multiple>
-      </label>
-      <span id="message" class="muted" role="status">No recordings loaded</span>
-    </div>
-  </section>
-
-  <div class="stats">
-    <div class="metric">
-      <strong id="count">0</strong>
-      <span>Saved events</span>
-    </div>
-    <div class="metric">
-      <strong id="unreviewed">0</strong>
-      <span>Unreviewed movement</span>
-    </div>
-    <div class="metric">
-      <strong id="identified">0</strong>
-      <span>Identified sightings</span>
-    </div>
-  </div>
-
-  <div class="toolbar">
-    <h2>Event archive</h2>
-    <input id="search" type="search" placeholder="Search date, species, notes" disabled>
-  </div>
-
-  <div id="cards" class="cards">
-    <div class="empty">Choose your FishWatch output folder to view saved clips.</div>
-  </div>
+<div class="stats"><div class="metric"><strong id="total">—</strong><span>Available clips</span></div><div class="metric"><strong id="unreviewed">—</strong><span>Unreviewed events</span></div><div class="metric"><strong id="identified">—</strong><span>Identified wildlife</span></div></div>
+<p class="info">Clips are recorded automatically by FishWatch on a local Mac and displayed here remotely. The current detector recognizes movement, not fish species. New recordings appear when saved and are checked every 60 seconds. If the Mac or public connection is offline, the archive will be unavailable.</p>
+<div class="toolbar"><h2>Event archive</h2><div class="tools"><input class="input" id="search" type="search" placeholder="Search date, species, notes" aria-label="Search recordings"><button class="refresh" type="button" id="refresh">Refresh</button></div></div>
+<div class="grid" id="grid"><div class="empty"><strong>Connecting</strong>Loading recorded events.</div></div>
 </main>
-
-<dialog id="player">
-  <div class="control">
-    <strong id="clip-title">Clip</strong>
-    <button id="close">Close</button>
-  </div>
-  <video id="video" controls playsinline></video>
-  <p><a id="download" download>Download clip</a></p>
-</dialog>
-
-<footer>
-  <div class="wrap">RunTime Dive Systems · A motion trigger is not a verified fish sighting.</div>
-</footer>
-
+<dialog id="player" aria-label="Saved recording"><div class="playerbar"><strong id="clip-title">FishWatch recording</strong><button id="close" type="button">Close</button></div><video id="video" controls playsinline preload="metadata"></video><div class="playerfoot"><span id="clip-date"></span><a id="download" target="_blank" rel="noopener noreferrer">Open video</a></div></dialog>
+<footer><div class="wrap">RunTime Dive Systems · Unreviewed motion triggers are not confirmed fish sightings.</div></footer>
 <script>
-let archive=new Map(),urls=new Map(),records=[],prefix='';
+'use strict';
 const $=id=>document.getElementById(id);
-
-function release(){
-  for(const u of urls.values())URL.revokeObjectURL(u);
-  urls.clear();archive.clear();records=[];prefix='';
-  $('video').pause();
-  $('video').removeAttribute('src');
-  $('video').load()
+let base='',events=[],loading=false;
+const apiUrl=p=>new URL(p,base+'/').href;
+const field=(o,key)=>String(o?.[key]??'');
+function elt(tag,cls,value){const e=document.createElement(tag);e.className=cls;e.textContent=value;return e;}
+function online(isOnline,label){$('connection').dataset.online=String(isOnline);$('connection').textContent=label;}
+function render(){
+ const search=$('search').value.trim().toLowerCase();
+ const selected=events.filter(r=>[r.observed_at,r.common_name,r.scientific_name,r.notes,r.category].join(' ').toLowerCase().includes(search));
+ $('total').textContent=events.filter(r=>r.clip).length;
+ $('unreviewed').textContent=events.filter(r=>r.category==='unreviewed').length;
+ $('identified').textContent=events.filter(r=>r.animal_visible===true).length;
+ const grid=$('grid');grid.replaceChildren();
+ if(!selected.length){const empty=elt('div','empty','');empty.append(elt('strong','',events.length?'No matches':'No recordings yet'));empty.append(elt('span','',events.length?'Try another search.':'FishWatch is connected, but no clips are available in the archive.'));grid.append(empty);return;}
+ for(const r of selected){
+  const card=elt('article','card',''),pic=elt('div','image','No snapshot');
+  if(r.snapshot){const im=document.createElement('img');im.src=apiUrl(r.snapshot);im.loading='lazy';im.alt='Still frame from saved recording';im.onerror=()=>{pic.textContent='Snapshot unavailable';};pic.replaceChildren(im);}
+  const bd=elt('div','cardbody','');bd.append(elt('span','tag',field(r,'category')||'unreviewed'));bd.append(elt('h3','',field(r,'common_name')||'Unreviewed movement'));
+  const time=new Date(r.observed_at||'');bd.append(elt('div','time',isNaN(time.getTime())?field(r,'observed_at'):time.toLocaleString()));
+  bd.append(elt('p','notes',field(r,'notes')||'Not yet reviewed'));
+  const btn=elt('button','play',r.clip?'Watch clip':'Clip unavailable');btn.type='button';btn.disabled=!r.clip;
+  if(r.clip){btn.addEventListener('click',()=>{
+   $('clip-title').textContent=field(r,'common_name')||'FishWatch recording';
+   $('clip-date').textContent=isNaN(time.getTime())?'':time.toLocaleString();
+   const url=apiUrl(r.clip);$('video').src=url;$('download').href=url;$('player').showModal();
+  });}
+  bd.append(btn);card.append(pic,bd);grid.append(card);
+ }
 }
-
-function asset(path){
-  const key=prefix+String(path||'').replace(/^\/+/,''),
-  f=archive.get(key);
-  if(!f)return null;
-  if(!urls.has(key))urls.set(key,URL.createObjectURL(f));
-  return urls.get(key)
+async function refresh(){
+ if(loading||!base)return;loading=true;$('refresh').disabled=true;
+ try{
+  const controller=new AbortController();const tm=setTimeout(()=>controller.abort(),15000);
+  let response;
+  try{response=await fetch(apiUrl('/api/events'),{cache:'no-store',signal:controller.signal});}finally{clearTimeout(tm);}
+  if(!response.ok)throw Error('HTTP '+response.status);
+  const data=await response.json();if(!Array.isArray(data.events))throw Error('Invalid event feed');
+  events=data.events;online(true,'ARCHIVE ONLINE');$('updated').textContent='Last checked '+new Date().toLocaleTimeString();render();
+ }catch(err){online(false,'ARCHIVE OFFLINE');$('updated').textContent='Could not reach the Mac: '+err.message;
+   if(!events.length){$('grid').replaceChildren();const d=elt('div','empty','');d.append(elt('strong','','No connection to FishWatch'));d.append(elt('span','','Check the Mac archive server and Tailscale Funnel connection.'));$('grid').append(d);}
+ }finally{loading=false;$('refresh').disabled=false;}
 }
-
-function node(tag,cls,s){
-  const e=document.createElement(tag);
-  e.className=cls;
-  e.textContent=s;
-  return e
+async function init(){
+ try{
+  const res=await fetch('./config.json',{cache:'no-store'});if(!res.ok)throw Error('Missing config.json');
+  const config=await res.json();const entered=String(config.api_base||'').trim().replace(/\/+$/,'');
+  if(!entered || entered.includes('REPLACE-WITH'))throw Error('Public HTTPS address not set');
+  const u=new URL(entered);
+  if(u.protocol!=='https:'||u.username||u.password||u.search||u.hash||u.pathname!=='/')throw Error('Public HTTPS address not set');
+  base=u.origin;await refresh();setInterval(refresh,60000);
+ }catch(e){online(false,'CONFIGURATION REQUIRED');$('updated').textContent='Set the Tailscale Funnel address in config.json';
+  const d=elt('div','empty','');d.append(elt('strong','','FishWatch has not been connected'));d.append(elt('span','','Add the public HTTPS Funnel URL to software/fishwatch/config.json in GitHub.'));$('grid').replaceChildren(d);
+ }
 }
-
-function show(){
-  const q=$('search').value.toLowerCase().trim(),
-  list=records.filter(r=>[r.observed_at,r.common_name,r.category,r.notes,r.scientific_name].join(' ').toLowerCase().includes(q));
-
-  $('count').textContent=records.length;
-  $('unreviewed').textContent=records.filter(r=>r.category==='unreviewed').length;
-  $('identified').textContent=records.filter(r=>r.animal_visible===true).length;
-
-  const box=$('cards');
-  box.replaceChildren();
-
-  if(!list.length){
-    box.append(node('div','empty',records.length?'No events match this search.':'No saved events found.'));
-    return
-  }
-
-  for(const r of list){
-    const card=node('article','card',''),
-    img=node('div','image','No snapshot'),
-    src=asset(r.snapshot);
-
-    if(src){
-      const i=document.createElement('img');
-      i.src=src;
-      i.loading='lazy';
-      i.alt='Event snapshot';
-      img.replaceChildren(i)
-    }
-
-    card.append(img);
-
-    const body=node('div','body','');
-    body.append(node('h3','',r.common_name||'Unidentified event'));
-    body.append(node('span','tag',r.category||'unreviewed'));
-
-    const date=new Date(r.observed_at);
-    body.append(node('p','',isNaN(date)?r.observed_at:date.toLocaleString()));
-    body.append(node('p','',r.notes||''));
-
-    const button=node('button','','Play MP4');
-    const clip=asset(r.clip);
-    button.disabled=!clip;
-
-    if(clip)button.addEventListener('click',()=>{
-      $('clip-title').textContent=r.common_name||'Event';
-      $('video').src=clip;
-      $('download').href=clip;
-      $('download').download=String(r.clip).split('/').pop();
-      $('player').showModal()
-    });
-
-    body.append(button);
-    card.append(body);
-    box.append(card)
-  }
-}
-
-$('folder').addEventListener('change',async ev=>{
-  release();
-
-  for(const f of ev.target.files)
-    archive.set(f.webkitRelativePath||f.name,f);
-
-  const key=[...archive.keys()].find(s=>s==='events.jsonl'||s.endsWith('/events.jsonl'));
-
-  if(!key){
-    $('message').textContent='No events.jsonl in selected folder';
-    $('search').disabled=true;
-    show();
-    return
-  }
-
-  prefix=key.slice(0,-'events.jsonl'.length);
-
-  try{
-    const lines=(await archive.get(key).text()).split(/\r?\n/).filter(Boolean);
-
-    records=lines.map(s=>{
-      try{return JSON.parse(s)}
-      catch{return null}
-    }).filter(Boolean).sort((a,b)=>String(b.observed_at).localeCompare(String(a.observed_at)));
-
-    $('message').textContent=records.length+' events loaded locally';
-    $('search').disabled=false;
-    show()
-  }catch(e){
-    $('message').textContent='Could not read events: '+e.message
-  }
-});
-
-$('search').addEventListener('input',show);
-
+$('search').addEventListener('input',render);
+$('refresh').addEventListener('click',refresh);
 $('close').addEventListener('click',()=>$('player').close());
-
-$('player').addEventListener('close',()=>{
-  $('video').pause();
-  $('video').removeAttribute('src');
-  $('video').load()
-});
+$('player').addEventListener('close',()=>{$('video').pause();$('video').removeAttribute('src');$('video').load();});
+init();
 </script>
 </body>
 </html>
