@@ -1,3 +1,4 @@
+
 [
   {
     "slug": "dpv-planner",
@@ -45,15 +46,27 @@
     "note": "Pilot-stage platform. Features and access can change as testing continues."
   },
   {
-  "slug": "trimix",
-  "name": "Trimix Fill Station",
-  "short": "Partial-pressure blending calculator.",
-  "category": "FILL STATION",
-  "status": "Live / ongoing",
-  "url": "https://runtimedivesystems.com/software/trimix/",
-  "link_label": "Open calculator",
-  "description": "An experimental ideal-gas calculator for checking trimix blend calculations.",
-  "body": "Pressure-based trimix and nitrox calculations with fill sequences, source-gas selection, and a calculation audit.",
-  "note": "Ideal-gas validation beta. Not independently validated for operational gas filling. Verify calculations and analyze every cylinder."
-}
+    "slug": "trimix",
+    "name": "Trimix Fill Station",
+    "short": "Partial-pressure blending calculator.",
+    "category": "FILL STATION",
+    "status": "Live / ongoing",
+    "url": "https://runtimedivesystems.com/software/trimix/",
+    "link_label": "Open calculator",
+    "description": "An experimental ideal-gas calculator for checking trimix blend calculations.",
+    "body": "Pressure-based trimix and nitrox calculations with fill sequences, source-gas selection, and a calculation audit.",
+    "note": "Ideal-gas validation beta. Not independently validated for operational gas filling. Verify calculations and analyze every cylinder."
+  },
+  {
+    "slug": "fishwatch",
+    "name": "FishWatch",
+    "short": "Automated underwater wildlife monitoring.",
+    "category": "MARINE LIFE",
+    "status": "Pilot",
+    "url": "https://runtimedivesystems.com/software/fishwatch/",
+    "link_label": "Open FishWatch",
+    "description": "Automated underwater livestream monitoring with motion-triggered recordings and a searchable archive of wildlife activity.",
+    "body": "FishWatch monitors a live underwater camera and automatically captures notable movement, saving video clips, snapshots, and timestamps. Recordings can be reviewed in a RunTime browser interface. Future development will introduce automated fish identification and a searchable marine life database.",
+    "note": "Experimental monitoring system. Current detections are motion-based and do not confirm the presence or identity of marine life."
+  }
 ]
