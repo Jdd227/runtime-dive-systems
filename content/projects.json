@@ -59,10 +59,10 @@
   },
   {
     "slug": "fishwatch",
-    "name": "FishWatch",
+    "name": "FishWatch at Redondo!",
     "short": "Automated underwater wildlife monitoring.",
     "category": "MARINE LIFE",
-    "status": "Pilot",
+    "status": "Running on Caffeine and Code",
     "url": "https://runtimedivesystems.com/software/fishwatch/",
     "link_label": "Open FishWatch",
     "description": "Automated underwater livestream monitoring with motion-triggered recordings and a searchable archive of wildlife activity.",
