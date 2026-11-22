@@ -1,9 +1,9 @@
 ---
-title: Inside My Dive Shed: A Technical Diving Workshop
+title: Inside My Dive Shed - A Technical Diving Workshop
 date: 2026-11-21
 project: Dive Shed
 excerpt: A look inside my 12 × 16-foot technical diving workshop: gas blending, JJ-CCR maintenance, rinse and drying stations, DPVs and 3D printing.
-draft: true
+draft: false
 ---
 
 I built a 12 × 16-foot dive shed to put my technical diving equipment in one dedicated workspace. It is more than gear storage. The shed has a gas filling station, a rebreather maintenance area, equipment rinse and drying facilities, a DPV rack, and a bench for 3D printing and electronics projects.
