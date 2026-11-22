@@ -2,7 +2,7 @@
 title: Inside My Dive Shed - A Technical Diving Workshop
 date: 2026-11-21
 project: Dive Shed
-excerpt: A look inside my 12 × 16-foot technical diving workshop: gas blending, JJ-CCR maintenance, rinse and drying stations, DPVs and 3D printing.
+excerpt: A look inside my 12 × 16-foot technical diving workshop - gas blending, JJ-CCR...
 draft: false
 ---
 
